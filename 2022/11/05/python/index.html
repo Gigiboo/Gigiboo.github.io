@@ -1,0 +1,810 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Gigiboo">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="基础知识学习 变量和简单数据类型 字符串 修改字符串的大小写 name.title()首字母大写 name.upper()全大 name.lower()全小 在字符串中使用变量 1234first_name &#x3D; &amp;#x27;ada&amp;#x27;last_name &#x3D; &amp;#x27;lovelace&amp;#x27;full_name &#x3D; f&quot;&amp;#123;first_name&amp;#125;&amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python">
+<meta property="og:url" content="http://gigiboo.github.io/2022/11/05/python/index.html">
+<meta property="og:site_name" content="Gigiboo&#39;s Blog">
+<meta property="og:description" content="基础知识学习 变量和简单数据类型 字符串 修改字符串的大小写 name.title()首字母大写 name.upper()全大 name.lower()全小 在字符串中使用变量 1234first_name &#x3D; &amp;#x27;ada&amp;#x27;last_name &#x3D; &amp;#x27;lovelace&amp;#x27;full_name &#x3D; f&quot;&amp;#123;first_name&amp;#125;&amp;#123;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-05T02:06:38.000Z">
+<meta property="article:modified_time" content="2022-11-05T09:37:00.000Z">
+<meta property="article:author" content="Gigiboo">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>python - Gigiboo&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/mac.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"gigiboo.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"ra4xihMhcfwkWbMdTMjyDNPb-gzGzoHsz","app_key":"o45ESI4r0dA0j3hGdyDaiMsn","server_url":"https://ra4xihmh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gigiboo&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/1.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="python"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-11-05 10:06" pubdate>
+          2022年11月5日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          60 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">python</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="基础知识学习">基础知识学习</h2>
+<h3 id="变量和简单数据类型">变量和简单数据类型</h3>
+<h4 id="字符串">字符串</h4>
+<h5 id="修改字符串的大小写">修改字符串的大小写</h5>
+<p><code>name.title()</code>首字母大写</p>
+<p><code>name.upper()</code>全大</p>
+<p><code>name.lower()</code>全小</p>
+<h5 id="在字符串中使用变量">在字符串中使用变量</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">first_name = <span class="hljs-string">&#x27;ada&#x27;</span><br>last_name = <span class="hljs-string">&#x27;lovelace&#x27;</span><br>full_name = <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;first_name&#125;</span><span class="hljs-subst">&#123;last_name&#125;</span>&quot;</span><br><span class="hljs-built_in">print</span>(full_name)<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">name = <span class="hljs-string">&quot;alice and judy&quot;</span><br>hobby = <span class="hljs-string">&quot;like playing basketball&quot;</span><br>full_sen. =<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;name.title()&#125;</span><span class="hljs-subst">&#123;hobby&#125;</span>&quot;</span><br>message = <span class="hljs-string">f&quot;hey, do u knoe <span class="hljs-subst">&#123;full_sen&#125;</span>!&quot;</span><br><span class="hljs-built_in">print</span> (message)<br></code></pre></td></tr></table></figure>
+<p>用f来创建消息，并赋给变量</p>
+<h5 id="删除空白">删除空白</h5>
+<p>常用于在存储用户输入前对其进行清理</p>
+<p><code>lstrip()</code>首</p>
+<p><code>rstrip()</code>尾</p>
+<p><code>strip()</code>首尾</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;test.1&quot;</span>)<br>name = <span class="hljs-string">&quot;hello eric&quot;</span><br>sent = <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;name.title()&#125;</span>,would u like to learn some Python today?&quot;</span><br><span class="hljs-built_in">print</span>(sent)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\n&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;test.2&quot;</span>)<br>celebrity = <span class="hljs-string">&quot;albert einstein&quot;</span><br>sentence_ce = <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;celebrity.title()&#125;</span> once said, &quot;A person who never made a mistake necer tried anything new.&quot;&#x27;</span><br><span class="hljs-built_in">print</span>(sentence_ce)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;\n&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;test.3&quot;</span>)<br>famous_person = <span class="hljs-string">&#x27;al es&#x27;</span><br>famous_person = famous_person.title()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;original:&#x27;<span class="hljs-subst">&#123;famous_person&#125;</span>&#x27;&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;original:&#x27;<span class="hljs-subst">&#123;famous_person.lstrip()&#125;</span>&#x27;&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;original:&#x27;<span class="hljs-subst">&#123;famous_person.restrip()&#125;</span>&#x27;&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;original:&#x27;<span class="hljs-subst">&#123;famous_person.strip()&#125;</span>&#x27;&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="列表">列表</h3>
+<h5 id="homework">homework</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">names = [<span class="hljs-string">&#x27;sun yang&#x27;</span>,<span class="hljs-string">&#x27;wang xinheng&#x27;</span>]<br><span class="hljs-built_in">print</span>(name[<span class="hljs-number">0</span>].title())<br><br>message = <span class="hljs-string">f&quot;hello, <span class="hljs-subst">&#123;name[<span class="hljs-number">0</span>].title()&#125;</span>&quot;</span><br><span class="hljs-built_in">print</span>(message)<br><br>commute = [<span class="hljs-string">&#x27;car&#x27;</span>,<span class="hljs-string">&#x27;bicycle&#x27;</span>,<span class="hljs-string">&#x27;motorcycle&#x27;</span>]<br>message_second = <span class="hljs-string">f&quot;I would like to own a Honda <span class="hljs-subst">&#123;commute[<span class="hljs-number">2</span>]&#125;</span>&quot;</span><br><span class="hljs-built_in">print</span>(message_second)<br></code></pre></td></tr></table></figure>
+<h4 id="修改添加和删除">修改添加和删除</h4>
+<h5 id="修改">修改</h5>
+<h5 id="添加">添加</h5>
+<p><code>append()</code>在末尾</p>
+<p><code>insert(location,'')</code>插入</p>
+<h5 id="删除">删除</h5>
+<p>无后续访问 使用del <code>del motorcycles[0]</code></p>
+<p>有后续访问 使用pop <code>pop(0)</code></p>
+<p>指定值删除 <code>remove()</code></p>
+<h4 id="组织列表">组织列表</h4>
+<h5 id="永久排序">永久排序</h5>
+<p>方法</p>
+<p><code>cars.sort()</code></p>
+<p><code>cars.sort(reverse = True)</code></p>
+<h5 id="临时排序">临时排序</h5>
+<p>函数</p>
+<p><code>sorted(cars)</code></p>
+<p><code>sorted(cars,reverse = True)</code></p>
+<h5 id="倒着打印">倒着打印</h5>
+<p>方法</p>
+<p><code>cars.reverse()</code></p>
+<h5 id="确定列表长度">确定列表长度</h5>
+<p>函数</p>
+<p><code>len(cars)</code></p>
+<h3 id="操作列表">操作列表</h3>
+<h5 id="homework-2">homework</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python">pizzas = [<span class="hljs-string">&#x27;meat&#x27;</span>,<span class="hljs-string">&#x27;cheese&#x27;</span>,<span class="hljs-string">&#x27;mushroom&#x27;</span>]<br><span class="hljs-keyword">for</span> pizza <span class="hljs-keyword">in</span> pizzas:<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;I like <span class="hljs-subst">&#123;pizza&#125;</span> pizza.&quot;</span>)<br>		<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;I like <span class="hljs-subst">&#123;pizza&#125;</span> pizza very much.&quot;</span>)<br>		<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;I really love pizza&quot;</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\n&quot;</span>)<br>animals = [<span class="hljs-string">&#x27;cat&#x27;</span>,<span class="hljs-string">&#x27;dog&#x27;</span>,<span class="hljs-string">&#x27;rabbit&#x27;</span>]<br><span class="hljs-keyword">for</span> animal <span class="hljs-keyword">in</span> animals:<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;A <span class="hljs-subst">&#123;animal&#125;</span> would make a great pet.&quot;</span>)<br>	<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot; xxx&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h4 id="创建数值列表">创建数值列表</h4>
+<h5 id="创建数字列表">创建数字列表</h5>
+<p><code>numbers = list(range(1,6))</code></p>
+<p>有步长</p>
+<p><code>numbers = list(range(2,11,2))</code></p>
+<p>计算前10个整数的平方</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">square = []<br><span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">11</span>)<br>	square.append(value**<span class="hljs-number">2</span>)<br>	<br><span class="hljs-built_in">print</span>(value)<br></code></pre></td></tr></table></figure>
+<p>列表解析</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">square = [value**<span class="hljs-number">2</span> <span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">11</span>)]<br><span class="hljs-built_in">print</span>(square)<br></code></pre></td></tr></table></figure>
+<p>描述性+表达式</p>
+<p>对数字列表执行简单的统计计算</p>
+<p><code>min(digits)</code></p>
+<p><code>max(digits)</code></p>
+<p><code>sum(digits)</code></p>
+<h4 id="使用列表的一部分">使用列表的一部分</h4>
+<h5 id="切片与遍历">切片与遍历</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">players = [<span class="hljs-string">&#x27;hey&#x27;</span>,<span class="hljs-string">&#x27;jude&#x27;</span>,<span class="hljs-string">&#x27;jack&#x27;</span>,<span class="hljs-string">&#x27;eli&#x27;</span>]<br><span class="hljs-built_in">print</span>(players[-<span class="hljs-number">3</span>::<span class="hljs-number">2</span>])<br></code></pre></td></tr></table></figure>
+<p>仍然是左闭右开</p>
+<p><code>players[:4]</code>从列表开始</p>
+<p><code>players[2:]</code>终止于列表结尾</p>
+<p><code>players[-3:]</code>最后三名队员</p>
+<p><code>players[-3::2]</code>每隔两个元素提取一个</p>
+<p>遍历：</p>
+<p><code>for player in players[:3]</code>遍历前三名队员</p>
+<h5 id="复制列表">复制列表</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">myfoods = [<span class="hljs-string">&#x27;pizza &#x27;</span>,<span class="hljs-string">&#x27;falafel&#x27;</span>,<span class="hljs-string">&#x27;carrot cake&#x27;</span>]<br>friendfoods = myfoods[:]<br>myfoods.append(<span class="hljs-string">&#x27;cannoli&#x27;</span>)<br>friendfoods.append(<span class="hljs-string">&#x27;ice cream&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p><code>friend_foods=my_foods</code></p>
+<p>两个列表关联 ，添加新元素会同时出现</p>
+<h4 id="元组">元组</h4>
+<p>不可改变的列表</p>
+<p><code>dimension = (200,50)</code></p>
+<p>只包含一个元素的元组 <code>dimension(200,)</code></p>
+<h4 id="If-语句">If 语句</h4>
+<h5 id="homework-3">homework</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python">message = <span class="hljs-string">&#x27;hello&#x27;</span><br>message2 = <span class="hljs-string">&#x27;HELLO&#x27;</span><br><span class="hljs-keyword">if</span> message.upper() == message2:<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Upper is true&quot;</span>)<br>	<br><span class="hljs-keyword">if</span> message2.lower() == message:<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Lower is true&quot;</span>)<br>	<br><span class="hljs-built_in">print</span>(message2&gt;message)<br><br>number = [<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]<br>number2 = [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]<br><span class="hljs-built_in">print</span>(number[<span class="hljs-number">0</span>]==number2[<span class="hljs-number">0</span>])<br><span class="hljs-keyword">if</span> <span class="hljs-number">0</span> <span class="hljs-keyword">in</span> number:<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;0 in it&quot;</span>)<br><span class="hljs-keyword">else</span>:<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;0 not in it&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p>elif</p>
+<h4 id="处理列表">处理列表</h4>
+<h5 id="确定列表是否为空">确定列表是否为空</h5>
+<h5 id="使用多列表">使用多列表</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">current_users=[<span class="hljs-string">&#x27;admin&#x27;</span>,<span class="hljs-string">&#x27;jack&#x27;</span>,<span class="hljs-string">&#x27;john&#x27;</span>,<span class="hljs-string">&#x27;amy&#x27;</span>,<span class="hljs-string">&#x27;lucy&#x27;</span>]<br>new_users=[<span class="hljs-string">&#x27;admin&#x27;</span>,<span class="hljs-string">&#x27;jack&#x27;</span>,<span class="hljs-string">&#x27;HAH&#x27;</span>,<span class="hljs-string">&#x27;QUeen&#x27;</span>,<span class="hljs-string">&#x27;King&#x27;</span>]<br><span class="hljs-comment">#创建副本包含所有的首字母大写</span><br>new_current_users = [user.title() <span class="hljs-keyword">for</span> user <span class="hljs-keyword">in</span> current_users]<br><br>sequences = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>))<br></code></pre></td></tr></table></figure>
+<h3 id="字典">字典</h3>
+<h4 id="使用字典">使用字典</h4>
+<h5 id="访问字典中的值">访问字典中的值</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">alien_0 = &#123;<span class="hljs-string">&#x27;color&#x27;</span>:<span class="hljs-string">&#x27;green&#x27;</span>,<span class="hljs-string">&#x27;age&#x27;</span>:<span class="hljs-string">&#x27;1&#x27;</span>&#125;<br><span class="hljs-built_in">print</span>(alien_0[<span class="hljs-string">&#x27;color&#x27;</span>])<br></code></pre></td></tr></table></figure>
+<p>键-值</p>
+<h5 id="添加键值">添加键值</h5>
+<p>直接添加</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">alien_0[<span class="hljs-string">&#x27;x_position&#x27;</span>] = <span class="hljs-number">0</span><br>alien_0[<span class="hljs-string">&#x27;y_position&#x27;</span>] = <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+<p>创建空键值然后添加</p>
+<h5 id="修改值">修改值</h5>
+<p>直接修改</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">alien_0[<span class="hljs-string">&#x27;color&#x27;</span>] = <span class="hljs-string">&#x27;yellow&#x27;</span><br></code></pre></td></tr></table></figure>
+<h5 id="删除键值对">删除键值对</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">del</span> alien_0[<span class="hljs-string">&#x27;points&#x27;</span>]<br></code></pre></td></tr></table></figure>
+<h5 id="有类似对象组成的字典">有类似对象组成的字典</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">favorite_languages = &#123;<br>	<span class="hljs-string">&#x27;jen&#x27;</span>:<span class="hljs-string">&#x27;python&#x27;</span>,<br>	<span class="hljs-string">&#x27;sarah&#x27;</span>:<span class="hljs-string">&#x27;c&#x27;</span>,<br>&#125;<br><br>language = favorite_language[<span class="hljs-string">&#x27;sarah&#x27;</span>].title()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;She likes <span class="hljs-subst">&#123;language&#125;</span>.&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h5 id="用get-来访问值">用get()来访问值</h5>
+<p>在指定的键不存在时返回一个默认值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">alien_0 = &#123;<span class="hljs-string">&#x27;color&#x27;</span>:<span class="hljs-string">&#x27;green&#x27;</span>,<span class="hljs-string">&#x27;speed&#x27;</span>:<span class="hljs-string">&#x27;medium&#x27;</span>&#125;<br><br>point_value = alien_0.get(<span class="hljs-string">&#x27;poionts&#x27;</span>,<span class="hljs-string">&#x27;no point vlaue assigned&#x27;</span>)<br><span class="hljs-built_in">print</span>(point_value)<br></code></pre></td></tr></table></figure>
+<p>also can be:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">alien_0 = &#123;<span class="hljs-string">&#x27;color&#x27;</span>:<span class="hljs-string">&#x27;green&#x27;</span>,<span class="hljs-string">&#x27;speed&#x27;</span>:<span class="hljs-string">&#x27;medium&#x27;</span>&#125;<br>message = <span class="hljs-string">&#x27;no point vlaue assigned&#x27;</span><br>point_value = alien_0.get(<span class="hljs-string">&#x27;poionts&#x27;</span>,message)<br><span class="hljs-built_in">print</span>(point_value)<br></code></pre></td></tr></table></figure>
+<h4 id="遍历字典">遍历字典</h4>
+<p><code>.items()</code>遍历所有的键值对</p>
+<p><code>.keys()</code>遍历所有的键</p>
+<p><code>.values()</code>遍历所有的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">favorite_language = &#123;<br>	<span class="hljs-string">&#x27;jen&#x27;</span>:<span class="hljs-string">&#x27;python&#x27;</span>,<br>	<span class="hljs-string">&#x27;sarah&#x27;</span>:<span class="hljs-string">&#x27;c&#x27;</span>,<br>	<span class="hljs-string">&#x27;edward&#x27;</span>:<span class="hljs-string">&#x27;ruby&#x27;</span>,<br>	<span class="hljs-string">&#x27;phil&#x27;</span>:<span class="hljs-string">&#x27;python&#x27;</span>,<br>&#125;<br><br><span class="hljs-keyword">for</span> name,language <span class="hljs-keyword">in</span> favorite_languages.items():<br>  <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;name.title()&#125;</span>&#x27;s favorite langauge is <span class="hljs-subst">&#123;language.title()&#125;</span>&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p>为了剔除重复项 用set集合</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> language <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span>(favorite_language.values):<br>	<span class="hljs-built_in">print</span>(language.title())<br></code></pre></td></tr></table></figure>
+<h4 id="嵌套">嵌套</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">aliens = []<br><br><span class="hljs-keyword">for</span> alien_number <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">30</span>):<br>	new_alien = &#123;<span class="hljs-string">&#x27;color&#x27;</span>:<span class="hljs-string">&#x27;green&#x27;</span>,<span class="hljs-string">&#x27;points&#x27;</span>:<span class="hljs-number">5</span>,<span class="hljs-string">&#x27;speed&#x27;</span>:<span class="hljs-string">&#x27;slow&#x27;</span>&#125;<br>	aliens.append(new_alien)<br>	<br><span class="hljs-keyword">for</span> alien <span class="hljs-keyword">in</span> alien[:<span class="hljs-number">3</span>]:<br>	<span class="hljs-keyword">if</span> alien[<span class="hljs-string">&#x27;color&#x27;</span>] == <span class="hljs-string">&#x27;green&#x27;</span><br>		alien[<span class="hljs-string">&#x27;color&#x27;</span>]  == <span class="hljs-string">&#x27;yellow&#x27;</span><br>		<br><span class="hljs-keyword">for</span> alien <span class="hljs-keyword">in</span> aliens[:<span class="hljs-number">5</span>]:<br>	<span class="hljs-built_in">print</span>(alien)<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">pizza = &#123;<br>	<span class="hljs-string">&#x27;crust&#x27;</span>:<span class="hljs-string">&#x27;thick&#x27;</span>,<br>	<span class="hljs-string">&#x27;topping&#x27;</span>:[<span class="hljs-string">&#x27;mushroom&#x27;</span>,<span class="hljs-string">&#x27;extra cheese&#x27;</span>],<br>&#125;<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;you ordered a <span class="hljs-subst">&#123;pizza[<span class="hljs-string">&#x27;crust&#x27;</span>]&#125;</span>-crust pizaa&quot;</span><br>	<span class="hljs-string">&quot;withfollowing toppings:&quot;</span>)<br>	<br><span class="hljs-keyword">for</span> topping <span class="hljs-keyword">in</span> pizza[<span class="hljs-string">&#x27;toppings&#x27;</span>]:<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\t&quot;</span>+topping)<br></code></pre></td></tr></table></figure>
+<p>讲一个键关联到多个值的时候，可以在字典中嵌套一个列表</p>
+<p>字典嵌套字典</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python">users = &#123;<br>	<span class="hljs-string">&#x27;aeinstein&#x27;</span>:&#123;<br>	<span class="hljs-string">&#x27;first&#x27;</span>:<span class="hljs-string">&#x27;al&#x27;</span>,<br>	<span class="hljs-string">&#x27;last&#x27;</span>:<span class="hljs-string">&#x27;ein&#x27;</span>,<br>	<span class="hljs-string">&#x27;location&#x27;</span>:<span class="hljs-string">&#x27;princeton&#x27;</span><br>	&#125;<br>	<span class="hljs-string">&#x27;mucrie&#x27;</span>:&#123;<br>	<span class="hljs-string">&#x27;first&#x27;</span>:<span class="hljs-string">&#x27;ma&#x27;</span>,<br>	<span class="hljs-string">&#x27;last&#x27;</span>:<span class="hljs-string">&#x27;curie&#x27;</span>,<br>	<span class="hljs-string">&#x27;locatin&#x27;</span>:<span class="hljs-string">&#x27;paris&#x27;</span><br>	&#125;<br>&#125;<br><br><span class="hljs-keyword">for</span> username, user_info <span class="hljs-keyword">in</span> users.items():<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;username&#125;</span>&quot;</span>)<br>	full_name = <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;user_info[<span class="hljs-string">&#x27;first&#x27;</span>]&#125;</span><span class="hljs-subst">&#123;user_info[<span class="hljs-string">&#x27;last&#x27;</span>]&#125;</span></span><br><span class="hljs-string">	location = user_info[&#x27;location&#x27;]</span><br><span class="hljs-string"></span><br></code></pre></td></tr></table></figure>
+<h3 id="用户输入">用户输入</h3>
+<p><code>message = input&#123;&quot;prompt:&quot;&#125;</code></p>
+<p>int数值输入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">height = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;how are u&quot;</span>)<br>height = <span class="hljs-built_in">int</span>(height)<br></code></pre></td></tr></table></figure>
+<h4 id="循环">循环</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">active = <span class="hljs-literal">True</span><br><br><span class="hljs-keyword">while</span> active:<br>	topping = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;please input ur toppings:&quot;</span>)<br>	<span class="hljs-keyword">if</span> topping == <span class="hljs-string">&#x27;quit&#x27;</span>:<br>		active = <span class="hljs-literal">False</span><br>	<span class="hljs-keyword">else</span>:<br>		<span class="hljs-built_in">print</span>( )<br></code></pre></td></tr></table></figure>
+<p>处理列表和字典</p>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nsis">while <span class="hljs-literal">user</span>:<br>	current_user = <span class="hljs-literal">user</span>.<span class="hljs-keyword">pop</span>()<br>	<br></code></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs routeros">pets = [<span class="hljs-string">&#x27;dog&#x27;</span>,<span class="hljs-string">&#x27;cat&#x27;</span>,<span class="hljs-string">&#x27;goldfish&#x27;</span>]<br><br><span class="hljs-keyword">while</span> <span class="hljs-string">&#x27;cat&#x27;</span> <span class="hljs-keyword">in</span> pets:<br>	pets.<span class="hljs-built_in">remove</span>(<span class="hljs-string">&#x27;cat&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="函数">函数</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">dislay_message</span>():<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;I learned xxx&quot;</span>)<br>	<br>display_message()<br></code></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">def make<span class="hljs-constructor">_shirt(<span class="hljs-params">size</span>,<span class="hljs-params">message</span>)</span>:<br>	printt(..)<br>	<br>make<span class="hljs-constructor">_shirt(&#x27;<span class="hljs-params">large</span>&#x27;,<span class="hljs-params">message</span>=&#x27;<span class="hljs-params">o</span> &#x27;)</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">def describe<span class="hljs-constructor">_city(<span class="hljs-params">city</span>,<span class="hljs-params">contru</span>=&#x27;China&#x27;)</span><br><br>describe<span class="hljs-constructor">_city(&#x27;<span class="hljs-params">shanghai</span>&#x27;)</span><br>describe<span class="hljs-constructor">_city(&#x27;<span class="hljs-params">hangzhou</span>&#x27;,&#x27;<span class="hljs-params">china</span>&#x27;)</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_fommatted_name</span>(<span class="hljs-params">first_name,last_name,middle_name=<span class="hljs-string">&#x27;&#x27;</span></span>):<br>	<span class="hljs-keyword">if</span> <span class="hljs-symbol">middle_name:</span><br>	fll<span class="hljs-string">``</span><span class="hljs-string">``</span><span class="hljs-string">`</span><br><span class="hljs-string">	</span><br><span class="hljs-string">	return full_name.title()</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">middle_name</span>=<span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-attr">age</span>=None<br><br></code></pre></td></tr></table></figure>
+<p>输入</p>
+<p>怎么输出字典</p>
+<p>怎么输出列表</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>python</div>
+      <div>http://gigiboo.github.io/2022/11/05/python/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Gigiboo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年11月5日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/27/basic/" title="《图神经网络导论》基础阅读笔记">
+                        <span class="hidden-mobile">《图神经网络导论》基础阅读笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"h4hltMGcySPe1h9ysuveDQt4-gzGzoHsz","appKey":"FLYP9tULvEQ4yfGsz8b653kE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"enable":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div> Gigiboo's blog | 一些随想与记录</div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        🧐
+        <span id="leancloud-site-pv"></span>
+        
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        👦
+        <span id="leancloud-site-uv"></span>
+        
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/31/2022 00:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已小心翼翼运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

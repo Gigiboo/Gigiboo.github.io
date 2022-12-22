@@ -1,0 +1,830 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Gigiboo">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Jupyter notebook的配置和插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jupyter notebook">
+<meta property="og:url" content="http://gigiboo.github.io/2022/08/02/Jupyterbok/index.html">
+<meta property="og:site_name" content="Gigiboo&#39;s Blog">
+<meta property="og:description" content="Jupyter notebook的配置和插件">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-07-27%20%E4%B8%8B%E5%8D%884.25.16.png">
+<meta property="og:image" content="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/v2-75db6aec2cf08a29014679435675f17d_720w-20220728104748504.jpg">
+<meta property="og:image" content="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/v2-6a926273202380b5fd5e51dff7941dfd_720w-20220728104748628.jpg">
+<meta property="og:image" content="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/v2-a7a2f4b1f06aed21df09b6e3b957e191_720w-20220728105638251.jpg">
+<meta property="og:image" content="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/v2-dd9b3a1f62c89570a47c7f6d24bf01a1_720w-20220728105638307.jpg">
+<meta property="article:published_time" content="2022-08-02T02:40:32.000Z">
+<meta property="article:modified_time" content="2022-08-06T09:05:24.000Z">
+<meta property="article:author" content="Gigiboo">
+<meta property="article:tag" content="APP">
+<meta property="article:tag" content="配置">
+<meta property="article:tag" content="shell">
+<meta property="article:tag" content="插件">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-07-27%20%E4%B8%8B%E5%8D%884.25.16.png">
+  
+  
+  
+  <title>Jupyter notebook - Gigiboo&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/mac.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"gigiboo.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"ra4xihMhcfwkWbMdTMjyDNPb-gzGzoHsz","app_key":"o45ESI4r0dA0j3hGdyDaiMsn","server_url":"https://ra4xihmh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gigiboo&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/1.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Jupyter notebook"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-02 10:40" pubdate>
+          2022年8月2日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Jupyter notebook</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="安装">安装</h2>
+<p>本来因为安装了Anaconda 想用 <code>conda install jupyter notebook</code></p>
+<p>但是报错说conda不能找到 根据知乎的教程使用 <code>pip</code>命令进行了安装</p>
+<h5 id="将pip升级">将pip升级</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pip3 install --upgrade pip<br></code></pre></td></tr></table></figure>
+<h5 id="安装Jupyter-Notebook">安装Jupyter Notebook</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pip3 install jupyter<br></code></pre></td></tr></table></figure>
+<h5 id="查看jupyter官方文档">查看jupyter官方文档</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">jupyter notebook --help<br></code></pre></td></tr></table></figure>
+<h5 id="启动">启动</h5>
+<p>直接输入 <code>jupyter notebook</code></p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-07-27%20%E4%B8%8B%E5%8D%884.25.16.png" srcset="/img/loading.gif" lazyload alt="截屏2022-07-27 下午4.25.16"></p>
+<h5 id="关于设置文件存放位置">关于设置文件存放位置</h5>
+<p>默认是在/User/mac的目录下 要重新对文件进行配置</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33105153"><strong>参考文档</strong></a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">jupyter notebook --generate-config<br></code></pre></td></tr></table></figure>
+<p>Step1:</p>
+<h6 id="创建文件夹-目录">创建文件夹/目录</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir &lt;directory_name&gt;<br>cd &lt;directory_name&gt;<br>pwd #显示路径后复制<br></code></pre></td></tr></table></figure>
+<p>Step2:</p>
+<h6 id="获取配置文件所在路径">获取配置文件所在路径</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">jupyter notebook --generate-config<br></code></pre></td></tr></table></figure>
+<p>Step3:</p>
+<h6 id="配置文件">配置文件</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim ~/.jupyter/jupyter_notebook_config.py<br></code></pre></td></tr></table></figure>
+<p>进入到配置文件后查找关键词</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">/c.NotebookApp.notebook_dir<br></code></pre></td></tr></table></figure>
+<p>回车找到目标词</p>
+<p>编辑配置文件：将创建的文件夹路径粘贴过来并删除注释语句符号#</p>
+<p>保存配置文件</p>
+<h2 id="拓展功能">拓展功能</h2>
+<h3 id="1-关联Jupyter-Notebook和conda的环境和包——“nb-conda”"><strong>1. 关联Jupyter Notebook和conda的环境和包——“nb_conda”</strong></h3>
+<h4 id="安装-2"><strong>安装</strong></h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">conda install nb_conda<br></code></pre></td></tr></table></figure>
+<p>执行上述命令能够将conda创建的环境与Jupyter Notebook相关联，便于在Jupyter Notebook的使用中，在不同的环境下创建笔记本进行工作。</p>
+<h4 id="使用"><strong>使用</strong></h4>
+<ul>
+<li>可以在Conda类目下对conda环境和包进行一系列操作。</li>
+</ul>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/v2-75db6aec2cf08a29014679435675f17d_720w-20220728104748504.jpg" srcset="/img/loading.gif" lazyload alt="img">Conda页面注解图</p>
+<ul>
+<li>可以在笔记本内的“Kernel”类目里的“Change kernel”切换内核。</li>
+</ul>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/v2-6a926273202380b5fd5e51dff7941dfd_720w-20220728104748628.jpg" srcset="/img/loading.gif" lazyload alt="img">切换内核</p>
+<h4 id="卸载"><strong>卸载</strong></h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">canda remove nb_conda<br></code></pre></td></tr></table></figure>
+<p>执行上述命令即可卸载nb_conda包。</p>
+<h3 id="2-Markdown生成目录">2.Markdown生成目录</h3>
+<ul>
+<li>不同于有道云笔记的Markdown编译器，Jupyter Notebook无法为Markdown文档通过特定语法添加目录，因此需要通过安装扩展来实现目录的添加。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">conda install -c conda-forge jupyter_contrib_nbextensions<br></code></pre></td></tr></table></figure>
+<ul>
+<li>执行上述命令后，启动Jupyter Notebook，你会发现导航栏多了“Nbextensions”的类目，点击“Nbextensions”，勾选“Table of Contents ⑵”</li>
+</ul>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/v2-a7a2f4b1f06aed21df09b6e3b957e191_720w-20220728105638251.jpg" srcset="/img/loading.gif" lazyload alt="img">Nbextensions页面</p>
+<ul>
+<li>之后再在Jupyter Notebook中使用Markdown，点击下图的图标即可使用啦。</li>
+</ul>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/v2-dd9b3a1f62c89570a47c7f6d24bf01a1_720w-20220728105638307.jpg" srcset="/img/loading.gif" lazyload alt="img">目录</p>
+<h3 id="3-加载本地Python文件"><strong>3. 加载本地Python文件</strong></h3>
+<h4 id="使用场景"><strong>使用场景</strong></h4>
+<p>想在Jupyter Notebook中加载本地的Python文件并执行文件代码。</p>
+<h4 id="方法"><strong>方法</strong></h4>
+<p>执行以下命令：</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haml"><span class="hljs-tag">%<span class="hljs-selector-tag">load</span></span> Python文件的绝对路径<br></code></pre></td></tr></table></figure>
+<h4 id="注意"><strong>注意</strong></h4>
+<ol>
+<li>Python文件的后缀为“.py”。</li>
+<li>“%load”后跟的是Python文件的<strong>绝对路径</strong>。</li>
+<li>输入命令后，可以按<code>CTRL 回车</code>来执行命令。第一次执行，是将本地的Python文件内容加载到单元格内。此时，Jupyter Notebook会自动将“%load”命令注释掉（即在前边加井号“#”），以便在执行已加载的文件代码时不重复执行该命令；第二次执行，则是执行已加载文件的代码。</li>
+</ol>
+<h3 id="4-直接运行本地Python文件"><strong>4. 直接运行本地Python文件</strong></h3>
+<h4 id="使用场景-2"><strong>使用场景</strong></h4>
+<p>不想在Jupyter Notebook的单元格中加载本地Python文件，想要直接运行。</p>
+<h4 id="方法-2"><strong>方法</strong></h4>
+<p>执行命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">%</span><span class="language-bash">run Python文件的绝对路径</span><br></code></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">!python3 Python文件的绝对路径<br></code></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">!python Python文件的绝对路径<br></code></pre></td></tr></table></figure>
+<h4 id="注意-2"><strong>注意</strong></h4>
+<ol>
+<li>Python文件的后缀为“.py”。</li>
+<li>“%run”后跟的是Python文件的<strong>绝对路径</strong>。</li>
+<li>“!python3”用于执行Python 3.x版本的代码。</li>
+<li>“!python”用于执行Python 2.x版本的代码。</li>
+<li>“!python3”和“!python”属于 <code>!shell命令</code> 语法的使用，即在Jupyter Notebook中执行shell命令的语法。</li>
+<li>输入命令后，可以按 <code>control return</code> 来执行命令，执行过程中将不显示本地Python文件的内容，直接显示运行结果。</li>
+</ol>
+<h2 id="关于其他的问题">关于其他的问题</h2>
+<h3 id="1-command-cannot-found-conda">1.command cannot found conda</h3>
+<p><a target="_blank" rel="noopener" href="https://stitch.blog.csdn.net/article/details/120691823?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1-120691823-blog-105113637.pc_relevant_multi_platform_whitelistv1&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1-120691823-blog-105113637.pc_relevant_multi_platform_whitelistv1&amp;utm_relevant_index=2">帮助文档</a></p>
+<h4 id="问题出现原因：">问题出现原因：</h4>
+<p>终端中zsh的可访问的程序一般放在/bin, /usr/bin, /usr/local/bin，~/bin目录下；而最新安装的会默认安装在/Users/username下或者/Users/username/opt下，导致环境变量没有写入到终端配置文件。</p>
+<h4 id="解决方案：">解决方案：</h4>
+<p>在export ZSH的路径下把字的的anaconda的安装路径加入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">export PATH=&quot;Users/mac/opt/anaconda3/bin:$PATH&quot;<br></code></pre></td></tr></table></figure>
+<h3 id="一些网上看到的小技巧">一些网上看到的小技巧</h3>
+<h3 id="1-输出矢量图">1.输出矢量图</h3>
+<p>只要多加一行配置，就能够让 Matplotlib 在 Jupyter Notebook 上面输出矢量图：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">import matplotlib<br>import matplotlib.pyplot as plt<br><span class="hljs-meta prompt_">%</span><span class="language-bash">matplotlib inline</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">config InlineBackend.figure_format = <span class="hljs-string">&#x27;svg&#x27;</span></span><br></code></pre></td></tr></table></figure>
+<p>上面的最后一行指定了输出的格式是 svg，这样浏览器就能为你渲染矢量图了。</p>
+<p>savefig 只要指定文件名后缀是 .pdf 或者 .eps 就能生成能方便地插入 latex 的图片了！</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">plt.savefig(&#x27;tmp.pdf&#x27;, bbox_inches=&#x27;tight&#x27;)<br>plt.show()<br></code></pre></td></tr></table></figure>
+<h3 id="2-Qgrid">2.<strong>Qgrid</strong></h3>
+<p>Qgrid也是一个Jupyter的小部件，不过它主要用于数据帧，装上之后，就可以像操作Excel里的筛选功能一样，方便的处理数据。</p>
+<p><strong>安装方法</strong></p>
+<p>用pip安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">pip install qgrid<br>jupyter nbextension enable --py --sys-prefix qgrid<br><span class="hljs-meta prompt_"># </span><span class="language-bash">only required <span class="hljs-keyword">if</span> you have not enabled the ipywidgets nbextension yet</span><br>jupyter nbextension enable --py --sys-prefix widgetsnbextension<br></code></pre></td></tr></table></figure>
+<p>用conda安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">only required <span class="hljs-keyword">if</span> you have not added conda-forge to your channels yet</span><br>conda config --add channels conda-forge<br>conda install qgrid<br></code></pre></td></tr></table></figure>
+<h3 id="3-一些有趣的魔法命令">3.一些有趣的魔法命令</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/fengdu78/article/details/126026130">魔法命令</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/" class="category-chain-item">一些配置</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/APP/">#APP</a>
+      
+        <a href="/tags/%E9%85%8D%E7%BD%AE/">#配置</a>
+      
+        <a href="/tags/shell/">#shell</a>
+      
+        <a href="/tags/%E6%8F%92%E4%BB%B6/">#插件</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Jupyter notebook</div>
+      <div>http://gigiboo.github.io/2022/08/02/Jupyterbok/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Gigiboo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年8月2日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/08/02/mactex/" title="MacTex配置+TexStudio">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">MacTex配置+TexStudio</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"h4hltMGcySPe1h9ysuveDQt4-gzGzoHsz","appKey":"FLYP9tULvEQ4yfGsz8b653kE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"enable":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div> Gigiboo's blog | 一些随想与记录</div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        🧐
+        <span id="leancloud-site-pv"></span>
+        
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        👦
+        <span id="leancloud-site-uv"></span>
+        
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/31/2022 00:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已小心翼翼运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
