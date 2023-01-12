@@ -1,3 +1,4 @@
+http://gigiboo.github.io/2023/01/12/%E5%8D%95%E7%89%87%E6%9C%BA%E5%87%BD%E6%95%B0/
 http://gigiboo.github.io/2022/11/05/python/
 http://gigiboo.github.io/2022/10/27/basic/
 http://gigiboo.github.io/2022/08/06/mac/
@@ -12,7 +13,14 @@ http://gigiboo.github.io/tags/%E6%8F%92%E4%BB%B6/
 http://gigiboo.github.io/tags/%E5%9F%BA%E7%A1%80/
 http://gigiboo.github.io/tags/%E9%97%AE%E9%A2%98/
 http://gigiboo.github.io/tags/Latex/
+http://gigiboo.github.io/tags/Python/
+http://gigiboo.github.io/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/
+http://gigiboo.github.io/tags/Keil/
+http://gigiboo.github.io/tags/C%E8%AF%AD%E8%A8%80/
 http://gigiboo.github.io/categories/%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/
 http://gigiboo.github.io/categories/%E5%9B%BE/
 http://gigiboo.github.io/categories/Mac/
 http://gigiboo.github.io/categories/Latex/
+http://gigiboo.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%B1%BB/
+http://gigiboo.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/
+http://gigiboo.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%8D%95%E7%89%87%E6%9C%BA/
