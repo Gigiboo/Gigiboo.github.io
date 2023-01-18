@@ -1,9 +1,10 @@
-http://gigiboo.github.io/2023/01/12/%E5%8D%95%E7%89%87%E6%9C%BA%E5%87%BD%E6%95%B0/
+http://gigiboo.github.io/2022/08/02/mactex/
 http://gigiboo.github.io/2022/11/05/python/
 http://gigiboo.github.io/2022/10/27/basic/
 http://gigiboo.github.io/2022/08/06/mac/
+http://gigiboo.github.io/2022/07/31/iterm2/
 http://gigiboo.github.io/2022/08/02/Jupyterbok/
-http://gigiboo.github.io/2022/08/02/mactex/
+http://gigiboo.github.io/2023/01/12/%E5%8D%95%E7%89%87%E6%9C%BA%E5%87%BD%E6%95%B0/
 http://gigiboo.github.io/about/index.html
 http://gigiboo.github.io/
 http://gigiboo.github.io/tags/APP/
