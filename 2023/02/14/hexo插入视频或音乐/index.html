@@ -16,26 +16,26 @@
   <meta name="author" content="Gigiboo">
   <meta name="keywords" content="">
   
-    <meta name="description" content="记录一些可以代替模块的已经现有可调用的函数">
+    <meta name="description" content="在Hexo搭建的博客中插入音乐或者视频">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单片机遇到的便捷函数">
-<meta property="og:url" content="http://gigiboo.github.io/2023/01/12/%E5%8D%95%E7%89%87%E6%9C%BA%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:title" content="hexo插入视频或音乐">
+<meta property="og:url" content="http://gigiboo.github.io/2023/02/14/hexo%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91%E6%88%96%E9%9F%B3%E4%B9%90/index.html">
 <meta property="og:site_name" content="Gigiboo&#39;s Blog">
-<meta property="og:description" content="记录一些可以代替模块的已经现有可调用的函数">
+<meta property="og:description" content="在Hexo搭建的博客中插入音乐或者视频">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://gigiboo.github.io/img/password.jpg">
-<meta property="article:published_time" content="2023-01-12T11:55:56.000Z">
-<meta property="article:modified_time" content="2023-02-14T12:52:42.146Z">
+<meta property="og:image" content="http://gigiboo.github.io/img/hexo.jpg">
+<meta property="article:published_time" content="2023-02-14T13:14:44.000Z">
+<meta property="article:modified_time" content="2023-02-14T13:28:56.487Z">
 <meta property="article:author" content="Gigiboo">
-<meta property="article:tag" content="51单片机">
-<meta property="article:tag" content="Keil">
-<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="插件">
+<meta property="article:tag" content="多媒体">
+<meta property="article:tag" content="部署">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://gigiboo.github.io/img/password.jpg">
+<meta name="twitter:image" content="http://gigiboo.github.io/img/hexo.jpg">
   
   
   
-  <title>单片机遇到的便捷函数 - Gigiboo&#39;s Blog</title>
+  <title>hexo插入视频或音乐 - Gigiboo&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -233,7 +233,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="单片机遇到的便捷函数"></span>
+            <span id="subtitle" data-typed-text="hexo插入视频或音乐"></span>
           
         </div>
 
@@ -244,8 +244,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-12 19:55" pubdate>
-          2023年1月12日 晚上
+        <time datetime="2023-02-14 21:14" pubdate>
+          2023年2月14日 晚上
         </time>
       </span>
     
@@ -256,7 +256,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          421 字
+          1.5k 字
         
       </span>
     
@@ -267,7 +267,7 @@
         
         
         
-          4 分钟
+          13 分钟
         
       </span>
     
@@ -305,30 +305,54 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">单片机遇到的便捷函数</h1>
+            <h1 style="display: none">hexo插入视频或音乐</h1>
             
             
               <div class="markdown-body">
                 
-                <h1>单片机遇到的便捷函数</h1>
-<h4 id="crol-函数："><code>_crol_</code>函数：</h4>
-<p>头文件：<code>intrins.h</code></p>
-<p>原型：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">extern</span> <span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> _crol_   (<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span>, <span class="hljs-type">unsigned</span> <span class="hljs-type">char</span>);第一个参数为要进行[移位]<br></code></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;intrins.h&gt;</span></span><br><br><span class="hljs-type">void</span> <span class="hljs-title function_">test_crol</span> <span class="hljs-params">(<span class="hljs-type">void</span>)</span> &#123;<br>  <span class="hljs-type">char</span> a;<br>  <span class="hljs-type">char</span> b;<br><br>  a = <span class="hljs-number">0xA5</span>; <span class="hljs-comment">//  1010 0101 -&gt;0010 1101</span><br>  b = _crol_(a,<span class="hljs-number">3</span>); <span class="hljs-comment">/* b now is 0x2D */</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
-<p>带进位位左移一位 相当于汇编里的RLC</p>
-<p>区别于&gt;&gt;1位不带进位位左移一位 相当于汇编里的RLA</p>
-<p>同理 <code>_cror_</code>为右移</p>
-<p>可以应用于<strong>改进流水灯代码</strong>以及<strong>矩阵键盘扫描</strong></p>
-<p>先码一下一些参考链接：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Lisiluan/article/details/104225877">1</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yfish/p/10858286.html">2</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dreamboat/archive/2012/06/16/2552263.html">3</a></p>
-<h4 id="一些位操作">一些位操作</h4>
-<h5 id="将command的低四位取反后赋值给P0口的低四位，并且不改变P0口的高四位">将command的低四位<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%8F%96%E5%8F%8D&amp;spm=1001.2101.3001.7020">取反</a>后赋值给P0口的低四位，并且不改变P0口的高四位</h5>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">P0 = (P0 | <span class="hljs-number">0x0F</span>) &amp; (~command | <span class="hljs-number">0xF0</span>)<br></code></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_47329175/article/details/112931721">参考博客</a></p>
-<p>持续记录中···</p>
+                <p>在单片机的文章中插入了不少的视频，但是在上传部署到hexo后发现视频在网页中的地理位置以及占比不太对劲且无法播放，于是搜索了在hexo中部署视频的方法，为简便下次应用，简单记录</p>
+<p>转载自<a target="_blank" rel="noopener" href="https://blog.csdn.net/yimagudao/article/details/89524210">倚马古道</a></p>
+<h3 id="hexo-tag-aplayer">hexo-tag-aplayer</h3>
+<h5 id="安装">安装</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install --save hexo-tag-aplayer<br></code></pre></td></tr></table></figure>
+<h5 id="使用方法——aplayer">使用方法——aplayer</h5>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;% aplayer title author url [picture_url, narrow, autoplay, width:xxx, lrc:xxx] %&#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li>title : 曲目标题</li>
+<li>author: 曲目作者</li>
+<li>url: 音乐文件 URL 地址</li>
+<li>picture_url: (可选) 音乐对应的图片地址</li>
+<li>narrow: （可选）播放器袖珍风格</li>
+<li>autoplay: (可选) 自动播放，移动端浏览器暂时不支持此功能</li>
+<li>width:xxx: (可选) 播放器宽度 (默认: 100%)</li>
+<li>lrc:xxx: （可选）歌词文件 URL 地址</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs perl">&#123;% aplayer <span class="hljs-string">&quot;她的睫毛&quot;</span> <span class="hljs-string">&quot;周杰伦&quot;</span> <span class="hljs-string">&quot;http://home.ustc.edu.cn/~mmmwhy/%d6%dc%bd%dc%c2%d7%20-%20%cb%fd%b5%c4%bd%de%c3%ab.mp3&quot;</span>  <span class="hljs-string">&quot;http://home.ustc.edu.cn/~mmmwhy/jay.jpg&quot;</span> %&#125;<br></code></pre></td></tr></table></figure>
+<p>如果你觉得前面的方法不太好用，可以用下面的方法，使用MetingJS。</p>
+<h5 id="使用方法——MetingJS">使用方法——MetingJS</h5>
+<p>MetingJS 是基于Meting API 的 APlayer 衍生播放器，支持对于 QQ音乐、网易云音乐、虾米、酷狗、百度等平台的音乐播放。</p>
+<h5 id="第一步：修改-config-yml配置">第一步：修改_config.yml配置</h5>
+<p>在hexo的配置文件_config.yml中添加：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">aplayer:</span><br>	<span class="hljs-attr">meting:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<h5 id="第二步：使用MetingJS-播放器">第二步：使用MetingJS 播放器</h5>
+<figure class="highlight twig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs twig"><span class="language-xml"><span class="hljs-comment">&lt;!-- 简单示例 (id, server, type)  --&gt;</span></span><br><span class="language-xml"></span><span class="hljs-template-tag">&#123;%</span> <span class="hljs-name">meting</span> <span class="hljs-string">&quot;571184509&quot;</span> <span class="hljs-string">&quot;xiami&quot;</span> <span class="hljs-string">&quot;playlist&quot;</span> <span class="hljs-template-tag">%&#125;</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230214212254943.png" srcset="/img/loading.gif" lazyload alt="image-20230214212254943"></p>
+<h3 id="hexo-tag-dplayer">hexo-tag-dplayer</h3>
+<p>hexo-tag-dplayer 是 DPlayer 播放器的 Hexo 标签插件</p>
+<h5 id="安装-2">安装</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install --save hexo-tag-dplayer<br></code></pre></td></tr></table></figure>
+<h5 id="使用">使用</h5>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;% dplayer key=value ... %&#125;<br></code></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;% dplayer &quot;url=http://www.nenu.edu.cn/_upload/article/videos/03/5f/7c999eed42e3aadc413d7f851f0e/0f50b3eb-9285-41d2-ac4d-6cc363651aad_B.mp4&quot;  &quot;autoplay=true&quot; &quot;preload=metadata&quot; &quot;hotkey=true&quot; %&#125; <br></code></pre></td></tr></table></figure>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230214212401408.png" srcset="/img/loading.gif" lazyload alt="image-20230214212401408"></p>
+<p>注：如果使用腾讯视频、优酷视频等在线视频网站的资源，需要先进行视频地址解析，如点量视频解析，获取到实际的视频地址。</p>
+<p>其他使用方法<br>
+在使用优酷或者腾讯视频时可以直接复制分享代码到文章中，如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">height</span>=<span class="hljs-string">498</span> <span class="hljs-attr">width</span>=<span class="hljs-string">510</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;https://player.youku.com/embed/XMjk4ODAyMzIyOA==&#x27;</span> <span class="hljs-attr">frameborder</span>=<span class="hljs-string">0</span> &#x27;<span class="hljs-attr">allowfullscreen</span>&#x27;&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41380292/article/details/121886741">其他可参考链接1</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/26a7fc7cc185">其他可参考链接2</a></p>
 
                 
               </div>
@@ -347,15 +371,8 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" class="category-chain-item">嵌入式</a>
+  <a href="/categories/hexo/" class="category-chain-item">hexo</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%8D%95%E7%89%87%E6%9C%BA/" class="category-chain-item">单片机</a>
-  
-  
-
   
 
       </span>
@@ -369,11 +386,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/">#51单片机</a>
+        <a href="/tags/%E6%8F%92%E4%BB%B6/">#插件</a>
       
-        <a href="/tags/Keil/">#Keil</a>
+        <a href="/tags/%E5%A4%9A%E5%AA%92%E4%BD%93/">#多媒体</a>
       
-        <a href="/tags/C%E8%AF%AD%E8%A8%80/">#C语言</a>
+        <a href="/tags/%E9%83%A8%E7%BD%B2/">#部署</a>
       
     </div>
   
@@ -385,8 +402,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>单片机遇到的便捷函数</div>
-      <div>http://gigiboo.github.io/2023/01/12/单片机函数/</div>
+      <div>hexo插入视频或音乐</div>
+      <div>http://gigiboo.github.io/2023/02/14/hexo插入视频或音乐/</div>
     </div>
     <div class="license-meta">
       
@@ -398,7 +415,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月12日</div>
+          <div>2023年2月14日</div>
         </div>
       
       
@@ -428,18 +445,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/02/14/%E5%8D%95%E7%89%87%E6%9C%BA1/" title="单片机入门学习1">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">单片机入门学习1</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/05/python/" title="Python">
-                        <span class="hidden-mobile">Python</span>
+                      <a href="/2023/02/14/%E2%80%9C%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E2%80%9D/" title="时间序列">
+                        <span class="hidden-mobile">时间序列</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

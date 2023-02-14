@@ -1,0 +1,940 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Gigiboo">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="单片机第二部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单片机入门学习2">
+<meta property="og:url" content="http://gigiboo.github.io/2023/02/14/%E2%80%9C%E5%8D%95%E7%89%87%E6%9C%BA2%E2%80%9D/index.html">
+<meta property="og:site_name" content="Gigiboo&#39;s Blog">
+<meta property="og:description" content="单片机第二部分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://gigiboo.github.io/img/%E5%8D%95%E7%89%87%E6%9C%BA.jpg">
+<meta property="article:published_time" content="2023-02-14T12:33:04.000Z">
+<meta property="article:modified_time" content="2023-02-14T13:13:22.883Z">
+<meta property="article:author" content="Gigiboo">
+<meta property="article:tag" content="51单片机">
+<meta property="article:tag" content="Keil">
+<meta property="article:tag" content="C语言">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://gigiboo.github.io/img/%E5%8D%95%E7%89%87%E6%9C%BA.jpg">
+  
+  
+  
+  <title>单片机入门学习2 - Gigiboo&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/mac.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"gigiboo.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"ra4xihMhcfwkWbMdTMjyDNPb-gzGzoHsz","app_key":"o45ESI4r0dA0j3hGdyDaiMsn","server_url":"https://ra4xihmh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"><script src="/assets/js/DPlayer.min.js"></script></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gigiboo&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/1.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="单片机入门学习2"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-02-14 20:33" pubdate>
+          2023年2月14日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          16k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          132 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">单片机入门学习2</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1>51单片机入门学习记录（2）</h1>
+<p>教程：江科协</p>
+<p>51单片机 Keil  C语言</p>
+<blockquote>
+<p>目录：</p>
+<p>[LED点阵屏](#1.25 LED点阵屏)</p>
+</blockquote>
+<h3 id="1-25-LED点阵屏">1.25 LED点阵屏</h3>
+<p>过年好 单片机的学习停了一个星期 刚刚看到弹幕一句话：<strong>都学到这了 怎么能半途而废呢</strong></p>
+<p>啊啊啊啊可是才P21 一共有P38 才学到一半啊啊啊啊啊啊啊啊啊啊啊！</p>
+<p>8*8个LED组成</p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230125205121954.png" srcset="/img/loading.gif" lazyload alt="image-20230125205121954"></p>
+<p>因为引脚共用 所以仍需采取逐行逐列扫描 扫描过快 显示就可以一起</p>
+<h5 id="开发板引脚对应关系">开发板引脚对应关系</h5>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230125205842157.png" srcset="/img/loading.gif" lazyload alt="image-20230125205842157"></p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230125210214567.png" srcset="/img/loading.gif" lazyload alt="image-20230125210214567"></p>
+<p>移位寄存器 <code>74HC595</code></p>
+<blockquote>
+<p>74HC595是串行输入并行输出的移位寄存器，可用<strong>3根线输入串行数据</strong>，8根线输出并行数据，多片级联后，可输出16位、24位、32位等，常用于IO口扩展。</p>
+</blockquote>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230125210917876.png" srcset="/img/loading.gif" lazyload alt="image-20230125210917876"></p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230125212522272.png" srcset="/img/loading.gif" lazyload alt="image-20230125212522272"></p>
+<blockquote>
+<ul>
+<li>sfr（special function register）：特殊功能寄存器声明</li>
+</ul>
+<p>例：sfr P0 = 0x80;</p>
+<p>声明P0口寄存器，物理地址为0x80</p>
+<ul>
+<li>sbit（special bit）：特殊位声明</li>
+</ul>
+<p>例：sbit P0_1 = 0x81;  或  sbit P0_1 = P0^1;</p>
+<p>声明P0寄存器的第1位</p>
+<p>可位寻址/不可位寻址：每8个寄存器中，只有一个是可以位寻址的。对不可位寻址的寄存器，若要只操作其中一位而不影响其它位时，可用“&amp;=”、“|=”、“^=”的方法进行位操作</p>
+</blockquote>
+<p>看到文件中 同一个地址有不同的名称？去搜了一下</p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230125221948217.png" srcset="/img/loading.gif" lazyload alt="image-20230125221948217"></p>
+<p>贴一个看到的<a target="_blank" rel="noopener" href="https://www.cnblogs.com/321waiting/p/9154219.html#:~:text=%E5%AD%97%E8%8A%82%E5%9C%B0%E5%9D%80%E5%92%8C%E4%BD%8D%E5%9C%B0%E5%9D%80%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB.%20%E4%BD%8D%E5%9C%B0%E5%9D%80%E5%B0%B1%E6%98%AF%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%9A%84%E5%9C%B0%E5%9D%80%EF%BC%8C8%E4%BD%8D%E4%B8%80%E4%B8%AA%E5%AD%97%E8%8A%82%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%8A%8A%E5%AD%97%E8%8A%82%E6%AF%94%E4%B8%BA%E4%B8%80%E4%B8%AA8%E4%BD%8D%E7%9A%84%E6%95%B0%E7%BB%84%E7%9A%84%E8%AF%9D%EF%BC%8C%E5%AD%97%E8%8A%82%E5%9C%B0%E5%9D%80%E5%B0%B1%E6%98%AF%E8%BF%99%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E9%A6%96%E5%9C%B0%E5%9D%80%EF%BC%8C%E5%85%B7%E4%BD%93%E5%8C%BA%E5%88%AB%E5%A6%82%E4%B8%8B%E3%80%82.%20%E4%B8%80%E3%80%81%E4%BD%8D%E5%9C%B0%E5%9D%80%E6%98%AF%E5%AD%97%E8%8A%82%E5%9C%B0%E5%9D%80%E4%B8%AD%E7%9A%84%E6%9F%90%E4%B8%80%E4%BD%8D%EF%BC%8C%E5%9C%A8RAM,%E4%B8%AD%EF%BC%8C%E4%BD%8D%E5%9C%B0%E5%9D%8020H%E6%98%AF%E5%AD%97%E8%8A%82%E5%9C%B0%E5%9D%8024H%E7%9A%84%E6%9C%80%E4%BD%8E%E4%BD%8D%E3%80%82.%20%E4%BA%8C%E3%80%81%E5%AD%97%E8%8A%82%E5%9C%B0%E5%9D%8020H%E6%9C%898%E4%B8%AA%E4%BD%8D%E5%9C%B0%E5%9D%80%EF%BC%9A%E4%BB%8E00H---07H%EF%BC%8C%E6%89%80%E4%BB%A5%E5%9C%A8%E7%94%A8%E6%B1%87%E7%BC%96%E5%8E%BB%E7%BC%96%E7%A8%8B%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E6%93%8D%E4%BD%9C%E7%9A%84%E5%9C%B0%E5%9D%80%E6%98%AF%E4%BD%8D%E5%9C%B0%E5%9D%80%E8%BF%98%E6%98%AF%E5%AD%97%E8%8A%82%E5%9C%B0%E5%9D%80%E3%80%82.%20%E4%B8%89%E3%80%81%E6%8A%8A%E6%95%B0%E6%8D%AE%E5%AD%98%E6%94%BE%E5%9C%A8%E5%90%AB%E6%9C%89%E4%BD%8D%E5%9C%B0%E5%9D%80%E7%9A%84%E5%AD%97%E8%8A%82%E5%9C%B0%E5%9D%80%E4%B8%AD%E7%9B%B8%E8%BF%9E%E6%97%B6%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E5%8E%BB%E6%94%B9%E5%8F%98%E8%BF%99%E4%B8%AA%E6%95%B0%E6%8D%AE%E7%9A%84%E6%9F%90%E4%B8%80%E4%BD%8D%EF%BC%8C%E6%89%80%E4%BB%A5%E5%AD%97%E8%8A%82%E5%9C%B0%E5%9D%80%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%AD%98%E6%94%BE8%E4%B8%AA%E4%BD%8D%E5%8F%98%E9%87%8F%E3%80%82.%20%E5%9B%9B%E3%80%81%E5%9C%A8%E7%94%A8%E6%B1%87%E7%BC%96%E5%8E%BB%E7%BC%96%E7%A8%8B%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E6%93%8D%E4%BD%9C%E7%9A%84%E5%9C%B0%E5%9D%80%E6%98%AF%E4%BD%8D%E5%9C%B0%E5%9D%80%E8%BF%98%E6%98%AF%E5%AD%97%E8%8A%82%E5%9C%B0%E5%9D%80%E3%80%82.">博客</a></p>
+<blockquote>
+<p>字节地址和位地址的区别：</p>
+<p>一、位地址是字节地址中的某一位，在RAM 中，位地址20H是字节地址24H的最低位。</p>
+<p>二、字节地址20H有8个位地址：从00H—07H，所以在用汇编去编程的时候，需要注意操作的地址是位地址还是字节地址。</p>
+<p>三、把数据存放在含有位地址的字节地址中相连时，可以在程序中去改变这个数据的某一位，所以字节地址中可以存放8个位变量。</p>
+<p>四、在用汇编去编程的时候，需要注意操作的地址是位地址还是字节地址。</p>
+<p>五、把数据存放在含有位地址的字节地址中时，可以在程序中去改变这个数据的某一位，字节地址中可以存放8个位变量</p>
+<p>六、位寻址取值范围就是0和1，字节寻址是0-255</p>
+</blockquote>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230125221647455.png" srcset="/img/loading.gif" lazyload alt="image-20230125221647455"></p>
+<h4 id="LED点阵屏显示图片">LED点阵屏显示图片</h4>
+<p>给一些位置进行重新申明</p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230125223204219.png" srcset="/img/loading.gif" lazyload alt="image-20230125223204219"></p>
+<p>但<code>RCLK</code>在头文件里已经定义过了 这些只是相当于外号 并没有什么关系 改名~</p>
+<ol>
+<li>定义一个函数用来把Byte写入八个引脚</li>
+</ol>
+<p>​		首先要把数据赋值给SER：取Byte的最高位<code> SER = Byte&amp;0x80</code></p>
+<p>​		注意：把一个数赋值给一个位，原则是：非0即1，即这个数不是0 则赋给前面1 ，也就是这里<code>0x80</code>非0 则赋给<code>SER</code>1,当然也可以用if原则</p>
+<ol start="2">
+<li>
+<p>给SELK时钟高电平让其移位</p>
+<p>首先上电后 SCK全是高电平 所以要先置0</p>
+</li>
+</ol>
+<h5 id="测试74HC585芯片">测试74HC585芯片</h5>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;REGX52.H&gt;</span></span><br><br>sbit RCK = P3^<span class="hljs-number">5</span>;<span class="hljs-comment">//P3的第五位，操作RCLK时等同于操作P3_5</span><br>sbit SCK = P3^<span class="hljs-number">6</span>;<span class="hljs-comment">//上升沿移位</span><br>sbit SER = P3^<span class="hljs-number">4</span>;<span class="hljs-comment">//上升沿锁存</span><br><br><span class="hljs-type">void</span> _74HC585_WriteByte(<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Byte)&#123; <span class="hljs-comment">//把Byte写入八个引脚</span><br>	<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> i;<br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">8</span>;i++)&#123;<br>		SER = Byte&amp;(<span class="hljs-number">0x80</span>&gt;&gt;i);<span class="hljs-comment">// [1]000 0000 </span><br>		SCK = <span class="hljs-number">1</span>;<span class="hljs-comment">//时钟上电后会移动数据</span><br>		SCK = <span class="hljs-number">0</span>;	<br>	&#125;<br>	RCK = <span class="hljs-number">1</span>;<br>	RCK = <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>	SCK = <span class="hljs-number">0</span>;<span class="hljs-comment">//初始化</span><br>	RCK = <span class="hljs-number">0</span>;<br>	_74HC585_WriteByte(<span class="hljs-number">0xF0</span>);<br>	<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>		<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>hh发现我的板子没有74H595的LED灯(ˉ▽ˉ；)…😶</p>
+<p>按照弹幕的说法可以给P0=0x00一个初值，此时LED点阵屏亮了一半，测试595芯片ok</p>
+<p>对点阵屏进行操作，<a href="#%E5%BC%80%E5%8F%91%E6%9D%BF%E5%BC%95%E8%84%9A%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB">引脚关系详见</a></p>
+<p>测试：以第一列为例</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">void</span> <span class="hljs-title function_">Matrixled_ShowColumn</span><span class="hljs-params">(<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Column,Data)</span>&#123; <span class="hljs-comment">//第0列到第7列</span><br>	_74HC585_WriteByte(Data);<br>	P0 = ~(<span class="hljs-number">0x80</span>&gt;&gt;Column);<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>	SCK = <span class="hljs-number">0</span>;<span class="hljs-comment">//初始化</span><br>	RCK = <span class="hljs-number">0</span>;<br>	Matrixled_ShowColumn(<span class="hljs-number">0</span>,<span class="hljs-number">0xAA</span>);<br>	<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>		<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>类似于数码管，如果多列显示未消抖延迟的话，会类似数码管（段选-&gt;位选-&gt;段选-&gt;位选-&gt;段选···会造成错乱），故需要<code>Delay</code>函数</p>
+<p>使得（段选-&gt;位选**-&gt;延时-&gt;位清零**-&gt;段选-&gt;位选-&gt;段选）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c">P0 = ~(<span class="hljs-number">0x80</span>&gt;&gt;Column);<br>Delay(<span class="hljs-number">1</span>);<br>P0 = <span class="hljs-number">0xFF</span>;<br></code></pre></td></tr></table></figure>
+<h5 id="测试对角线显示：">测试<strong>对角线显示</strong>：</h5>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>	SCK = <span class="hljs-number">0</span>;<span class="hljs-comment">//初始化</span><br>	RCK = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>		Matrixled_ShowColumn(<span class="hljs-number">0</span>,<span class="hljs-number">0x80</span>);<br>		Matrixled_ShowColumn(<span class="hljs-number">1</span>,<span class="hljs-number">0x40</span>);<br>		Matrixled_ShowColumn(<span class="hljs-number">2</span>,<span class="hljs-number">0x20</span>);<br>		Matrixled_ShowColumn(<span class="hljs-number">3</span>,<span class="hljs-number">0x10</span>);<br>		Matrixled_ShowColumn(<span class="hljs-number">4</span>,<span class="hljs-number">0x08</span>);<br>		Matrixled_ShowColumn(<span class="hljs-number">5</span>,<span class="hljs-number">0x04</span>);<br>		Matrixled_ShowColumn(<span class="hljs-number">6</span>,<span class="hljs-number">0x02</span>);<br>		Matrixled_ShowColumn(<span class="hljs-number">7</span>,<span class="hljs-number">0x01</span>);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/af441434420dee18f87d43e8f0d9875.jpg" srcset="/img/loading.gif" lazyload alt="af441434420dee18f87d43e8f0d9875"></p>
+<h5 id="画笑脸">画笑脸</h5>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;REGX52.H&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Delay.h&quot;</span></span><br><br>sbit RCK = P3^<span class="hljs-number">5</span>;<span class="hljs-comment">//P3的第五位，操作RCLK时等同于操作P3_5</span><br>sbit SCK = P3^<span class="hljs-number">6</span>;<span class="hljs-comment">//上升沿移位</span><br>sbit SER = P3^<span class="hljs-number">4</span>;<span class="hljs-comment">//上升沿锁存</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MATRIX_LED_PORT P0</span><br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">  * @brief 74HC595写入一个字节</span><br><span class="hljs-comment">  * @param 要写入的字节</span><br><span class="hljs-comment">  * @retval 无</span><br><span class="hljs-comment">  */</span><br><span class="hljs-type">void</span> _74HC585_WriteByte(<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Byte)&#123; <span class="hljs-comment">//把Byte写入八个引脚</span><br>	<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> i;<br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">8</span>;i++)&#123;<br>		SER = Byte&amp;(<span class="hljs-number">0x80</span>&gt;&gt;i);<span class="hljs-comment">// [1]000 0000 </span><br>		SCK = <span class="hljs-number">1</span>;<span class="hljs-comment">//时钟上电后会移动数据</span><br>		SCK = <span class="hljs-number">0</span>;	<br>	&#125;<br>	RCK = <span class="hljs-number">1</span>;<br>	RCK = <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">  * @brief LED点阵屏显示一列数据</span><br><span class="hljs-comment">  * @param Column要选择的列（0~7），0在最左边</span><br><span class="hljs-comment">  * @param Data选择列显示的数据，高位在上，1为亮</span><br><span class="hljs-comment">  * @retval 无</span><br><span class="hljs-comment">  */</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">MatrixLED_ShowColumn</span><span class="hljs-params">(<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Column,Data)</span>&#123; <span class="hljs-comment">//第0列到第7列</span><br>	_74HC585_WriteByte(Data);<br>	MATRIX_LED_PORT = ~(<span class="hljs-number">0x80</span>&gt;&gt;Column);<br>	Delay(<span class="hljs-number">1</span>);<br>	MATRIX_LED_PORT = <span class="hljs-number">0xFF</span>;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>	SCK = <span class="hljs-number">0</span>;<span class="hljs-comment">//初始化</span><br>	RCK = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>		MatrixLED_ShowColumn(<span class="hljs-number">0</span>,<span class="hljs-number">0x3C</span>);<br>		MatrixLED_ShowColumn(<span class="hljs-number">1</span>,<span class="hljs-number">0x42</span>);<br>		MatrixLED_ShowColumn(<span class="hljs-number">2</span>,<span class="hljs-number">0xA9</span>);<br>		MatrixLED_ShowColumn(<span class="hljs-number">3</span>,<span class="hljs-number">0x85</span>);<br>		MatrixLED_ShowColumn(<span class="hljs-number">4</span>,<span class="hljs-number">0x85</span>);<br>		MatrixLED_ShowColumn(<span class="hljs-number">5</span>,<span class="hljs-number">0xA9</span>);<br>		MatrixLED_ShowColumn(<span class="hljs-number">6</span>,<span class="hljs-number">0x42</span>);<br>		MatrixLED_ShowColumn(<span class="hljs-number">7</span>,<span class="hljs-number">0x3C</span>);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/b7f52e97a78071484a193192844c6dc.jpg" srcset="/img/loading.gif" lazyload alt="b7f52e97a78071484a193192844c6dc"></p>
+<h4 id="LED点阵屏显示动画">LED点阵屏显示动画</h4>
+<p>先模块化一下</p>
+<p>显示动画可以先存一个数组 然后逐个显示（从左往右）</p>
+<p>up主给了一个字模提取很便捷的软件</p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230126130116413.png" srcset="/img/loading.gif" lazyload alt="image-20230126130116413"></p>
+<p><code>MatrixLED.h</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> __MATRIX_LED_H__</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> __MATRIX_LED_H__</span><br><br><span class="hljs-type">void</span> _74HC585_WriteByte(<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Byte);<br><span class="hljs-type">void</span> <span class="hljs-title function_">MatrixLED_ShowColumn</span><span class="hljs-params">(<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Column,Data)</span>;<br><span class="hljs-type">void</span> <span class="hljs-title function_">MatrixLED_Init</span><span class="hljs-params">()</span>;<br><br><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br></code></pre></td></tr></table></figure>
+<p><code>MatrixLED.c</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;REGX52.H&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Delay.h&quot;</span></span><br><br>sbit RCK = P3^<span class="hljs-number">5</span>;<span class="hljs-comment">//P3的第五位，操作RCLK时等同于操作P3_5</span><br>sbit SCK = P3^<span class="hljs-number">6</span>;<span class="hljs-comment">//上升沿移位</span><br>sbit SER = P3^<span class="hljs-number">4</span>;<span class="hljs-comment">//上升沿锁存</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MATRIX_LED_PORT P0</span><br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">  * @brief 74HC595写入一个字节</span><br><span class="hljs-comment">  * @param 要写入的字节</span><br><span class="hljs-comment">  * @retval 无</span><br><span class="hljs-comment">  */</span><br><span class="hljs-type">void</span> _74HC585_WriteByte(<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Byte)&#123; <span class="hljs-comment">//把Byte写入八个引脚</span><br>	<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> i;<br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">8</span>;i++)&#123;<br>		SER = Byte&amp;(<span class="hljs-number">0x80</span>&gt;&gt;i);<span class="hljs-comment">// [1]000 0000 </span><br>		SCK = <span class="hljs-number">1</span>;<span class="hljs-comment">//时钟上电后会移动数据</span><br>		SCK = <span class="hljs-number">0</span>;	<br>	&#125;<br>	RCK = <span class="hljs-number">1</span>;<br>	RCK = <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">  * @brief 点阵屏初始化</span><br><span class="hljs-comment">  * @param 无</span><br><span class="hljs-comment">  * @retval 无</span><br><span class="hljs-comment">  */</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">MatrixLED_Init</span><span class="hljs-params">()</span>&#123;<br>	SCK = <span class="hljs-number">0</span>;<br>	RCK = <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">  * @brief LED点阵屏显示一列数据</span><br><span class="hljs-comment">  * @param Column要选择的列（0~7），0在最左边</span><br><span class="hljs-comment">  * @param Data选择列显示的数据，高位在上，1为亮</span><br><span class="hljs-comment">  * @retval 无</span><br><span class="hljs-comment">  */</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">MatrixLED_ShowColumn</span><span class="hljs-params">(<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Column,Data)</span>&#123; <span class="hljs-comment">//第0列到第7列</span><br>	_74HC585_WriteByte(Data);<br>	MATRIX_LED_PORT = ~(<span class="hljs-number">0x80</span>&gt;&gt;Column);<br>	Delay(<span class="hljs-number">1</span>);<br>	MATRIX_LED_PORT = <span class="hljs-number">0xFF</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><code>main.c</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;REGX52.H&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Delay.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;MatrixLED.h&quot;</span></span><br><br><span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> code Animation[]=&#123;<span class="hljs-number">0x11</span>,<span class="hljs-number">0x12</span>,<span class="hljs-number">0x1C</span>,<span class="hljs-number">0x32</span>,<span class="hljs-number">0xD1</span>,<span class="hljs-number">0x1F</span>,<span class="hljs-number">0x00</span>,<span class="hljs-number">0x1E</span>,<span class="hljs-number">0x12</span>,<span class="hljs-number">0x12</span>,<span class="hljs-number">0x12</span>,<span class="hljs-number">0x1E</span>,<span class="hljs-number">0x00</span>,<span class="hljs-number">0x00</span>,<span class="hljs-number">0x49</span>,<span class="hljs-number">0x2A</span>,<br><span class="hljs-number">0x00</span>,<span class="hljs-number">0x3E</span>,<span class="hljs-number">0x2A</span>,<span class="hljs-number">0xFE</span>,<span class="hljs-number">0x2A</span>,<span class="hljs-number">0x3E</span>,<span class="hljs-number">0x00</span>,<span class="hljs-number">0x00</span>,<span class="hljs-number">0x00</span>,<span class="hljs-number">0xFA</span>,<span class="hljs-number">0x00</span>,<span class="hljs-number">0x00</span>,<span class="hljs-number">0xFA</span>,<span class="hljs-number">0x00</span>,<span class="hljs-number">0x00</span>,<span class="hljs-number">0xFA</span>,&#125;;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>	<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> i,offset=<span class="hljs-number">0</span>,count=<span class="hljs-number">0</span>;<br>	MatrixLED_Init();<br>	<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>		<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">8</span>;i++)&#123;<br>			MatrixLED_ShowColumn(i,Animation[i+offset]);<br>		&#125;<br>		count++;<br>		<span class="hljs-keyword">if</span>(count&gt;<span class="hljs-number">10</span>)&#123;<br>			offset++;<br>			count = <span class="hljs-number">0</span>;<br>			<span class="hljs-keyword">if</span>(offset&gt;<span class="hljs-number">24</span>)&#123;<span class="hljs-comment">//防止数组溢出乱码</span><br>				offset = <span class="hljs-number">0</span>;<br>			&#125;<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>一般数组是会放在ram里会很浪费 要给他放在flash里<code>unsigned char code Animation</code></p>
+<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"autoplay":true,"hotkey":true,"preload":"metadata","video":{"url":"https://typoraxmy.oss-cn-shanghai.aliyuncs.com/72c2d9e8784f00f42842b66d6b7eb578.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script> 
+<h3 id="1-27-DS1302实时时钟">1.27 DS1302实时时钟</h3>
+<p>时钟显示+调节时间</p>
+<blockquote>
+<p>RTC(Real Time Clock)：实时时钟，是一种集成电路，通常称为时钟芯片</p>
+</blockquote>
+<p>定时器的时钟会<strong>占用CPU</strong>时间且<strong>精度不高</strong>，<strong>断电就会清零</strong></p>
+<p>实时时钟内部带一个备用电池，断电后会提供能量</p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230127101008185.png" srcset="/img/loading.gif" lazyload alt="image-20230127101008185"></p>
+<h5 id="内部结构图">内部结构图</h5>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230127101513157.png" srcset="/img/loading.gif" lazyload alt="image-20230127101513157"></p>
+<h5 id="内部RTC寄存器">内部RTC寄存器</h5>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230127102711156.png" srcset="/img/loading.gif" lazyload alt="image-20230127102711156"></p>
+<p>WP：write protect，置1的话写入无效</p>
+<p>目标：在寄存器写入单片机的数据、在寄存器读出时钟芯片（DS1302）的数据</p>
+<h5 id="时序定义">时序定义</h5>
+<p>上升沿时地址，下降沿是数据？</p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230127103805054.png" srcset="/img/loading.gif" lazyload alt="image-20230127103805054"></p>
+<p>写入数据：</p>
+<p>先把CE置1，发一个命令字（Command Byte）决定读写位置与方式，<strong>IO口写入最低位决定是读还是写（最开始）</strong>，SCLK一个上升沿读入数据，归零后再给一个上升沿读取新的数据，依次循环八位···操作完后再把CE置0</p>
+<p>读取数据：</p>
+<p>按照上面的依然需要八个上升沿决定读写位置和方式，W给1单片机接收到命令值，紧跟着时钟的下降沿开始读出适中的数据</p>
+<h3 id="1-28-DS1302实时时钟-可调时钟">1.28 DS1302实时时钟&amp;可调时钟</h3>
+<h4 id="实时时钟">实时时钟</h4>
+<p>先对三个端口进行定义（方便一点）</p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230128192041831.png" srcset="/img/loading.gif" lazyload alt="image-20230128192041831"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c">sbit DS1302_SCLK = P3^<span class="hljs-number">6</span>;<br>sbit DS1302_IO = P3^<span class="hljs-number">4</span>;<br>sbit DS1302_CE = P3^<span class="hljs-number">5</span>;<br></code></pre></td></tr></table></figure>
+<p>^是位选，_是已经定义的， ^其实是PIO口的地址</p>
+<h5 id="模拟时序">模拟时序</h5>
+<p>操作前要先初始化，CE默认是0，但单片机上电时默认都是1</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-type">void</span> <span class="hljs-title function_">DS1302_Init</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>&#123;<br>	DS1302_CE = <span class="hljs-number">0</span>;<br>	DS1302_SCLK = <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h6 id="单字节写">单字节写</h6>
+<p>先高电平使能，后从低到高取值</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">void</span> <span class="hljs-title function_">DS1302_WriteByte</span><span class="hljs-params">(<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Command,Data)</span>&#123;<br>	DS1302_CE = <span class="hljs-number">1</span>;<br>	<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> i;<br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">8</span>;i++)&#123;<br>		DS1302_IO = Command&amp;(<span class="hljs-number">0x01</span>&lt;&lt;i);<span class="hljs-comment">//取出最低位</span><br>		DS1302_SCLK = <span class="hljs-number">1</span>；<br>		DS1302_SCLK = <span class="hljs-number">0</span>；<br>	&#125;<br>		<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">8</span>;i++)&#123;<br>		DS1302_IO = Data&amp;(<span class="hljs-number">0x01</span>&lt;&lt;i);<span class="hljs-comment">//取出最低位</span><br>		DS1302_SCLK = <span class="hljs-number">1</span>；<br>		DS1302_SCLK = <span class="hljs-number">0</span>；<br>	&#125;<br>	DS1302_CE = <span class="hljs-number">0</span>;		<br>&#125;<br></code></pre></td></tr></table></figure>
+<h6 id="单字节读取">单字节读取</h6>
+<p>如果按照上面的话在循环结束后是已经完整地进行了八个上下沿，第一个数据已经被读取了</p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230128194252363.png" srcset="/img/loading.gif" lazyload alt="image-20230128194252363"></p>
+<p>读取是要比写入少一个脉冲的 因为最后一次是立马读出数据的，所以要更换顺序，使得第一次循环结束后所在的位置左边都是与写入有关的</p>
+<h6 id="测试">测试</h6>
+<p>显示了255？</p>
+<p>看到弹幕说是有写入保护，要在<code>LCD_Init();</code>后写<code>DS1302_WriteByte(0x8E,0x00);</code>，但是好像也没有用欸</p>
+<p>和up主的源代码对比发现少了一个<code>DS1302_IO=0;	//读取后将IO设置为0，否则读出的数据会出错</code></p>
+<p>正常了但是很不稳定 但是<strong>不怎么懂原理</strong> 这一节的读取好不容易 不太理解 到时候再看一下（要加上接触芯片保护的）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;REGX52.H&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;LCD1602.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;DS1302.h&quot;</span></span><br><br><span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Second;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>	LCD_Init();<br>	LCD_ShowString(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-string">&quot;RTC&quot;</span>);<br>	DS1302_WriteByte(<span class="hljs-number">0x8E</span>,<span class="hljs-number">0x00</span>);<br>	DS1302_WriteByte(<span class="hljs-number">0x80</span>,<span class="hljs-number">0x03</span>);<br><br>	<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>		Second = DS1302_ReadByte(<span class="hljs-number">0x81</span>);<br>		LCD_ShowNum(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,Second,<span class="hljs-number">3</span>);<br>	&#125;	<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>但是到009后直接变成了016</p>
+<p>原因：DS1302内部的寄存器是以BDC码进行存储的</p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230128202329458.png" srcset="/img/loading.gif" lazyload alt="image-20230128202329458"></p>
+<p>9为0000 1001 10为 0001 0000 16为0001 0110</p>
+<p>解决方法：以16进制显示<code>LCD_ShowHexNum(2,1,Second,3);</code>，或者<code>LCD_ShowNum(2,1,Second/16*10+Second%16,3);</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Second,Minite;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>	LCD_Init();<br>	LCD_ShowString(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-string">&quot;RTC&quot;</span>);<br>	DS1302_WriteByte(<span class="hljs-number">0x8E</span>,<span class="hljs-number">0x00</span>);<span class="hljs-comment">//解除芯片保护</span><br>	DS1302_WriteByte(<span class="hljs-number">0x80</span>,<span class="hljs-number">0x55</span>);<br>	DS1302_WriteByte(<span class="hljs-number">0x82</span>,<span class="hljs-number">0x03</span>);<br><br><br>	<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>		Second = DS1302_ReadByte(<span class="hljs-number">0x81</span>);<br>		Minite = DS1302_ReadByte(<span class="hljs-number">0x83</span>);<br>		LCD_ShowNum(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,Second/<span class="hljs-number">16</span>*<span class="hljs-number">10</span>+Second%<span class="hljs-number">16</span>,<span class="hljs-number">2</span>);<br>		LCD_ShowNum(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,Minite/<span class="hljs-number">16</span>*<span class="hljs-number">10</span>+Minite%<span class="hljs-number">16</span>,<span class="hljs-number">2</span>);<br>	&#125;	<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>秒分钟小时对应的参考如下</p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230127102711156.png" srcset="/img/loading.gif" lazyload alt="image-20230127102711156"></p>
+<p>为了每次可以不用查表，可以配置一个表格</p>
+<p><code>DS1302.c</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;REGX52.H&gt;</span></span><br><br><span class="hljs-comment">//引脚定义</span><br>sbit DS1302_SCLK = P3^<span class="hljs-number">6</span>;<br>sbit DS1302_IO = P3^<span class="hljs-number">4</span>;<br>sbit DS1302_CE = P3^<span class="hljs-number">5</span>;<br><br><span class="hljs-comment">//寄存器写入地址/指令定义</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> DS1302_SECOND		0x80</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> DS1302_MINUTE		0x82</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> DS1302_HOUR			0x84</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> DS1302_DATE			0x86</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> DS1302_MONTH		0x88</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> DS1302_DAY			0x8A</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> DS1302_YEAR			0x8C</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> DS1302_WP			0x8E</span><br><br><span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> DS1302_Time[] = &#123;<span class="hljs-number">23</span>,<span class="hljs-number">1</span>,<span class="hljs-number">28</span>,<span class="hljs-number">20</span>,<span class="hljs-number">27</span>,<span class="hljs-number">50</span>,<span class="hljs-number">6</span>&#125;;<span class="hljs-comment">//当前时间年月日时分秒星期</span><br><br><span class="hljs-type">void</span> <span class="hljs-title function_">DS1302_Init</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>&#123;<br>	DS1302_CE = <span class="hljs-number">0</span>;<br>	DS1302_SCLK = <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">  * @brief  DS1302写一个字节</span><br><span class="hljs-comment">  * @param  Command 命令字/地址</span><br><span class="hljs-comment">  * @param  Data 要写入的数据</span><br><span class="hljs-comment">  * @retval 无</span><br><span class="hljs-comment">  */</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">DS1302_WriteByte</span><span class="hljs-params">(<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Command,Data)</span>&#123;<br>	<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> i;<br>	DS1302_CE = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">8</span>;i++)&#123;<br>		DS1302_IO = Command&amp;(<span class="hljs-number">0x01</span>&lt;&lt;i);<span class="hljs-comment">//取出最低位</span><br>		DS1302_SCLK = <span class="hljs-number">1</span>;<br>		DS1302_SCLK = <span class="hljs-number">0</span>;<br>	&#125;<br>		<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">8</span>;i++)&#123;<br>		DS1302_IO = Data&amp;(<span class="hljs-number">0x01</span>&lt;&lt;i);<span class="hljs-comment">//取出最低位</span><br>		DS1302_SCLK = <span class="hljs-number">1</span>;<br>		DS1302_SCLK = <span class="hljs-number">0</span>;<br>	&#125;<br>	DS1302_CE = <span class="hljs-number">0</span>;		<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">  * @brief  DS1302读一个字节</span><br><span class="hljs-comment">  * @param  Command 命令字/地址</span><br><span class="hljs-comment">  * @retval 读出的数据</span><br><span class="hljs-comment">  */</span><br><span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> <span class="hljs-title function_">DS1302_ReadByte</span><span class="hljs-params">(<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Command)</span>&#123;<br>	<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> i,Data=<span class="hljs-number">0x00</span>;<br>	Command|=<span class="hljs-number">0x01</span>;<span class="hljs-comment">//读的地址要比写的地址多一位（比如81h和80h），直接定义</span><br>	DS1302_CE = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">8</span>;i++)&#123;<br>		DS1302_IO = Command&amp;(<span class="hljs-number">0x01</span>&lt;&lt;i);<span class="hljs-comment">//取出最低位</span><br>		DS1302_SCLK = <span class="hljs-number">0</span>;<br>		DS1302_SCLK = <span class="hljs-number">1</span>;<br>	&#125;<br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">8</span>;i++)&#123;<br>		DS1302_SCLK = <span class="hljs-number">1</span>;<br>		DS1302_SCLK = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">if</span>(DS1302_IO)&#123;Data|=(<span class="hljs-number">0x01</span>&lt;&lt;i);&#125;<br>	&#125;<br>	DS1302_CE = <span class="hljs-number">0</span>;<br>	DS1302_IO=<span class="hljs-number">0</span>;	<span class="hljs-comment">//读取后将IO设置为0，否则读出的数据会出错</span><br>	<span class="hljs-keyword">return</span> Data;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">  * @brief  DS1302设置时间，调用之后，DS1302_Time数组的数字会被设置到DS1302中</span><br><span class="hljs-comment">  * @param  无</span><br><span class="hljs-comment">  * @retval 无</span><br><span class="hljs-comment">  */</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">DS1302_SetTime</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>&#123;<br>	DS1302_WriteByte(DS1302_WP,<span class="hljs-number">0x00</span>);<span class="hljs-comment">//解除芯片保护</span><br>	DS1302_WriteByte(DS1302_YEAR,DS1302_Time[<span class="hljs-number">0</span>]/<span class="hljs-number">10</span>*<span class="hljs-number">16</span>+DS1302_Time[<span class="hljs-number">0</span>]%<span class="hljs-number">10</span>);<span class="hljs-comment">//十进制转BCD码后写入</span><br>	DS1302_WriteByte(DS1302_MONTH,DS1302_Time[<span class="hljs-number">1</span>]/<span class="hljs-number">10</span>*<span class="hljs-number">16</span>+DS1302_Time[<span class="hljs-number">1</span>]%<span class="hljs-number">10</span>);<br>	DS1302_WriteByte(DS1302_DATE,DS1302_Time[<span class="hljs-number">2</span>]/<span class="hljs-number">10</span>*<span class="hljs-number">16</span>+DS1302_Time[<span class="hljs-number">2</span>]%<span class="hljs-number">10</span>);<br>	DS1302_WriteByte(DS1302_HOUR,DS1302_Time[<span class="hljs-number">3</span>]/<span class="hljs-number">10</span>*<span class="hljs-number">16</span>+DS1302_Time[<span class="hljs-number">3</span>]%<span class="hljs-number">10</span>);<br>	DS1302_WriteByte(DS1302_MINUTE,DS1302_Time[<span class="hljs-number">4</span>]/<span class="hljs-number">10</span>*<span class="hljs-number">16</span>+DS1302_Time[<span class="hljs-number">4</span>]%<span class="hljs-number">10</span>);<br>	DS1302_WriteByte(DS1302_SECOND,DS1302_Time[<span class="hljs-number">5</span>]/<span class="hljs-number">10</span>*<span class="hljs-number">16</span>+DS1302_Time[<span class="hljs-number">5</span>]%<span class="hljs-number">10</span>);<br>	DS1302_WriteByte(DS1302_DAY,DS1302_Time[<span class="hljs-number">6</span>]/<span class="hljs-number">10</span>*<span class="hljs-number">16</span>+DS1302_Time[<span class="hljs-number">6</span>]%<span class="hljs-number">10</span>);<br>	DS1302_WriteByte(DS1302_WP,<span class="hljs-number">0x80</span>);<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">  * @brief  DS1302读取时间，调用之后，DS1302中的数据会被读取到DS1302_Time数组中</span><br><span class="hljs-comment">  * @param  无</span><br><span class="hljs-comment">  * @retval 无</span><br><span class="hljs-comment">  */</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">DS1302_ReadTime</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>&#123;<br>	<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Temp;<br>	Temp=DS1302_ReadByte(DS1302_YEAR);<br>	DS1302_Time[<span class="hljs-number">0</span>]=Temp/<span class="hljs-number">16</span>*<span class="hljs-number">10</span>+Temp%<span class="hljs-number">16</span>;<span class="hljs-comment">//BCD码转十进制后读取</span><br>	Temp=DS1302_ReadByte(DS1302_MONTH);<br>	DS1302_Time[<span class="hljs-number">1</span>]=Temp/<span class="hljs-number">16</span>*<span class="hljs-number">10</span>+Temp%<span class="hljs-number">16</span>;<br>	Temp=DS1302_ReadByte(DS1302_DATE);<br>	DS1302_Time[<span class="hljs-number">2</span>]=Temp/<span class="hljs-number">16</span>*<span class="hljs-number">10</span>+Temp%<span class="hljs-number">16</span>;<br>	Temp=DS1302_ReadByte(DS1302_HOUR);<br>	DS1302_Time[<span class="hljs-number">3</span>]=Temp/<span class="hljs-number">16</span>*<span class="hljs-number">10</span>+Temp%<span class="hljs-number">16</span>;<br>	Temp=DS1302_ReadByte(DS1302_MINUTE);<br>	DS1302_Time[<span class="hljs-number">4</span>]=Temp/<span class="hljs-number">16</span>*<span class="hljs-number">10</span>+Temp%<span class="hljs-number">16</span>;<br>	Temp=DS1302_ReadByte(DS1302_SECOND);<br>	DS1302_Time[<span class="hljs-number">5</span>]=Temp/<span class="hljs-number">16</span>*<span class="hljs-number">10</span>+Temp%<span class="hljs-number">16</span>;<br>	Temp=DS1302_ReadByte(DS1302_DAY);<br>	DS1302_Time[<span class="hljs-number">6</span>]=Temp/<span class="hljs-number">16</span>*<span class="hljs-number">10</span>+Temp%<span class="hljs-number">16</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><code>main.c</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;REGX52.H&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;LCD1602.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;DS1302.h&quot;</span></span><br><br><span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> Second,Minite;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>	LCD_Init();<br>	LCD_ShowString(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-string">&quot;RTC&quot;</span>);<br>	LCD_ShowString(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-string">&quot;  -  -  &quot;</span>);<span class="hljs-comment">//静态字符初始化显示</span><br>	LCD_ShowString(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-string">&quot;  :  :  &quot;</span>);<br>	<br>	DS1302_SetTime();<span class="hljs-comment">//设置时间</span><br><br>	<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>		DS1302_ReadTime();<span class="hljs-comment">//读取时间</span><br>		LCD_ShowNum(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,DS1302_Time[<span class="hljs-number">0</span>],<span class="hljs-number">2</span>);<span class="hljs-comment">//显示年</span><br>		LCD_ShowNum(<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,DS1302_Time[<span class="hljs-number">1</span>],<span class="hljs-number">2</span>);<span class="hljs-comment">//显示月</span><br>		LCD_ShowNum(<span class="hljs-number">1</span>,<span class="hljs-number">7</span>,DS1302_Time[<span class="hljs-number">2</span>],<span class="hljs-number">2</span>);<span class="hljs-comment">//显示日</span><br>		LCD_ShowNum(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,DS1302_Time[<span class="hljs-number">3</span>],<span class="hljs-number">2</span>);<span class="hljs-comment">//显示时</span><br>		LCD_ShowNum(<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,DS1302_Time[<span class="hljs-number">4</span>],<span class="hljs-number">2</span>);<span class="hljs-comment">//显示分</span><br>		LCD_ShowNum(<span class="hljs-number">2</span>,<span class="hljs-number">7</span>,DS1302_Time[<span class="hljs-number">5</span>],<span class="hljs-number">2</span>);<span class="hljs-comment">//显示秒</span><br>	&#125;	<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>好难···有很多细节不是很理解···只能大体知道点···</p>
+<h3 id="2-1-蜂鸣器">2.1 蜂鸣器</h3>
+<h4 id="介绍原理">介绍原理</h4>
+<p>按驱动方式分类：</p>
+<p><strong>有源蜂鸣器</strong>：内部自带振荡源，将正负极接上直流电压即可持续发声，频率固定</p>
+<p><strong>无源蜂鸣器</strong>：需要控制器提供振荡脉冲才可发声，<strong>调整提供振荡脉冲的频率</strong>，可发出不同频率的声音</p>
+<p>（本节内用单片机提供方波脉，交流振荡发声，电能转化为机械能，但蜂鸣器不能长时间一直通电，容易造成烧毁）</p>
+<p>单片机的I/O口不能直接驱动蜂鸣器，必须要过ULN2003芯片</p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230201130453834.png" srcset="/img/loading.gif" lazyload alt="image-20230201130453834"></p>
+<p>ULN2003芯片（一边用于五线四相步进电机的驱动）</p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230201131538757.png" srcset="/img/loading.gif" lazyload alt="image-20230201131538757"></p>
+<p><strong>所以只需控制P15口就可以产生振动频率输出01来控制蜂鸣器</strong>（好像有说新版变成了P25口，到时候编程的时候测试一下）</p>
+<p>注意：单片机上电的时候默认是高电平，P15默认取反为0，故OUT5为0，即默认会有电流，蜂鸣器会响一下，且始终通电流</p>
+<p>播放音乐的参数：音高、时长</p>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230201133730841.png" srcset="/img/loading.gif" lazyload alt="image-20230201133730841"></p>
+<p>根据频率值控制定时器产生相应频率的计时，从而控制中断控制IO口的反转</p>
+<p>频率的关系，可以计算定时器的重装值：</p>
+<p>注意：</p>
+<ol>
+<li>
+<p>一个机器周期=12个晶振周期</p>
+</li>
+<li>
+<p>翻转IO口控制频率时，翻转两次才是一个周期<img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230201135730573.png" srcset="/img/loading.gif" lazyload alt="image-20230201135730573"></p>
+</li>
+<li>
+<p>所以翻转的时间时1/2</p>
+</li>
+<li>
+<p>重装载值将高八位取出放到TH0，第八位放在TL0，再控制定时器中断</p>
+</li>
+</ol>
+<p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230201140206405.png" srcset="/img/loading.gif" lazyload alt="image-20230201140206405"></p>
+<h4 id="播放提示音">播放提示音</h4>
+<p>目的：按键松开瞬间给一个按键提示音</p>
+<p>注意：</p>
+<ol>
+<li>
+<p>要把数码管模块代码中清零部分删除（此次是静态显示）</p>
+</li>
+<li>
+<p>蜂鸣器标准频率是1000hz</p>
+</li>
+</ol>
+<p>up主最后是用了默认的标准频率，在他的基础上我修改了为可以自己<strong>设定频率</strong>（可选参数）和<strong>延长的时间</strong></p>
+<p>不过现在才发现，用C语言定义带默认参数/不定参数的函数不像C++那样便捷</p>
+<p>参考了博客要写些代码···嗯好麻烦好麻烦的···</p>
+<p>所以还是简单些说明，如果不自定义频率的参数就要传入0吧···下次有时间写一下cpp文件试试？（大概率是不会去写的hh）</p>
+<h3 id="2-3-蜂鸣器">2.3 蜂鸣器</h3>
+<p>感觉越临近开学越不好好学了，难道是开学焦虑综合征（fp）应该又是太多东西堆积所以顾不过来的时候，就好想摆烂</p>
+<p>真的感觉在多线程前会非常力不从心且一件都很难做好，还会搞得身心很疲惫</p>
+<p>用板子试了一下 确实是P2^5</p>
+<p><code>main.c</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;REGX52.H&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Delay.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Key.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Nixie.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Buzzer.h&quot;</span></span><br><br><span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> keynumber;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>	Nixie(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>);<span class="hljs-comment">//使上电是0 而不是全亮的状态</span><br>	<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>		keynumber = Key();<br>		<span class="hljs-keyword">if</span>(keynumber)&#123;<br>			Buzzer_Time(<span class="hljs-number">1000</span>,<span class="hljs-number">0</span>);<br>			Nixie(<span class="hljs-number">1</span>,keynumber);<span class="hljs-comment">//数码管静态显示</span><br>		&#125;<br>	&#125;	<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><code>Buzzer.c</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;REGX52.H&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Delay.h&quot;</span></span><br><br><span class="hljs-comment">//蜂鸣器端口：</span><br>sbit Buzzer = P2^<span class="hljs-number">5</span>;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">  * @brief 蜂鸣器按照标准1000hz延时</span><br><span class="hljs-comment">  * @param 无</span><br><span class="hljs-comment">  * @retval 无</span><br><span class="hljs-comment">  */</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">Buzzer_Delay500us</span><span class="hljs-params">()</span>		<span class="hljs-comment">//@12.000MHz</span><br>&#123;<br>	<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> i;<br><br>	i = <span class="hljs-number">247</span>;<br>	<span class="hljs-keyword">while</span> (--i);<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">  * @brief 蜂鸣器发声</span><br><span class="hljs-comment">  * @param xms 发声的时长，范围：0~32767</span><br><span class="hljs-comment">  * @param 可选参数frequency(1~500) 因为delay的参数最小是1，如果不传入频率默认要写入0</span><br><span class="hljs-comment">  * @retval 无</span><br><span class="hljs-comment">	以500hz的频率响100ms</span><br><span class="hljs-comment">		for(i=0;i&lt;100;i++)&#123;</span><br><span class="hljs-comment">			Buzzer = !Buzzer;</span><br><span class="hljs-comment">			Delay(1);//每隔1ms翻转一次，周期为2ms，频率为500hz</span><br><span class="hljs-comment">		&#125;</span><br><span class="hljs-comment">  */</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">Buzzer_Time</span><span class="hljs-params">(<span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> xms,frequency)</span>&#123;<br>	<span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> i,Delay_Time,For_Time;<br>	<br>	<span class="hljs-keyword">if</span>(frequency)&#123;<br>		Delay_Time = <span class="hljs-number">500</span>/frequency;<br>		For_Time = xms/Delay_Time;<br>		<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;For_Time;i++)&#123;<br>			Buzzer = !Buzzer;<br>			Delay(Delay_Time);<span class="hljs-comment">//每隔1ms翻转一次，周期为2ms，频率为500hz</span><br>		&#125;<br>	&#125;<br>	<span class="hljs-comment">/*按标准的1000hz*/</span><br>	<span class="hljs-keyword">else</span>&#123;<br>		<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;xms*<span class="hljs-number">2</span>;i++)&#123;<br>			Buzzer = !Buzzer;<br>			Buzzer_Delay500us();<span class="hljs-comment">//延时0.5ms</span><br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="音乐">音乐</h4>
+<p>受不鸟了听不下去了，直接copy了…记录一下听到了32：20，如果下次需要的话再继续看…</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;REGX52.H&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Delay.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Timer0.h&quot;</span></span><br><br><span class="hljs-comment">//蜂鸣器端口定义</span><br>sbit Buzzer=P1^<span class="hljs-number">5</span>;<br><br><span class="hljs-comment">//播放速度，值为四分音符的时长(ms)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> SPEED	500</span><br><br><span class="hljs-comment">//音符与索引对应表，P：休止符，L：低音，M：中音，H：高音，下划线：升半音符号#</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> P	0</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L1	1</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L1_	2</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L2	3</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L2_	4</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L3	5</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L4	6</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L4_	7</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L5	8</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L5_	9</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L6	10</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L6_	11</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L7	12</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> M1	13</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> M1_	14</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> M2	15</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> M2_	16</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> M3	17</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> M4	18</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> M4_	19</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> M5	20</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> M5_	21</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> M6	22</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> M6_	23</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> M7	24</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> H1	25</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> H1_	26</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> H2	27</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> H2_	28</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> H3	29</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> H4	30</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> H4_	31</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> H5	32</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> H5_	33</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> H6	34</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> H6_	35</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> H7	36</span><br><br><span class="hljs-comment">//索引与频率对照表</span><br><span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> FreqTable[]=&#123;<br>	<span class="hljs-number">0</span>,<br>	<span class="hljs-number">63628</span>,<span class="hljs-number">63731</span>,<span class="hljs-number">63835</span>,<span class="hljs-number">63928</span>,<span class="hljs-number">64021</span>,<span class="hljs-number">64103</span>,<span class="hljs-number">64185</span>,<span class="hljs-number">64260</span>,<span class="hljs-number">64331</span>,<span class="hljs-number">64400</span>,<span class="hljs-number">64463</span>,<span class="hljs-number">64528</span>,<br>	<span class="hljs-number">64580</span>,<span class="hljs-number">64633</span>,<span class="hljs-number">64684</span>,<span class="hljs-number">64732</span>,<span class="hljs-number">64777</span>,<span class="hljs-number">64820</span>,<span class="hljs-number">64860</span>,<span class="hljs-number">64898</span>,<span class="hljs-number">64934</span>,<span class="hljs-number">64968</span>,<span class="hljs-number">65000</span>,<span class="hljs-number">65030</span>,<br>	<span class="hljs-number">65058</span>,<span class="hljs-number">65085</span>,<span class="hljs-number">65110</span>,<span class="hljs-number">65134</span>,<span class="hljs-number">65157</span>,<span class="hljs-number">65178</span>,<span class="hljs-number">65198</span>,<span class="hljs-number">65217</span>,<span class="hljs-number">65235</span>,<span class="hljs-number">65252</span>,<span class="hljs-number">65268</span>,<span class="hljs-number">65283</span>,<br>&#125;;<br><br><span class="hljs-comment">//乐谱</span><br><span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> code Music[]=&#123;<br>	<span class="hljs-comment">//音符,时值,</span><br>	<br>	<span class="hljs-comment">//1</span><br>	P,	<span class="hljs-number">4</span>,<br>	P,	<span class="hljs-number">4</span>,<br>	P,	<span class="hljs-number">4</span>,<br>	M6,	<span class="hljs-number">2</span>,<br>	M7,	<span class="hljs-number">2</span>,<br>	<br>	H1,	<span class="hljs-number">4</span>+<span class="hljs-number">2</span>,<br>	M7,	<span class="hljs-number">2</span>,<br>	H1,	<span class="hljs-number">4</span>,<br>	H3,	<span class="hljs-number">4</span>,<br>	<br>	M7,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	M3,	<span class="hljs-number">2</span>,<br>	M3,	<span class="hljs-number">2</span>,<br>	<br>	<span class="hljs-comment">//2</span><br>	M6,	<span class="hljs-number">4</span>+<span class="hljs-number">2</span>,<br>	M5,	<span class="hljs-number">2</span>,<br>	M6, <span class="hljs-number">4</span>,<br>	H1,	<span class="hljs-number">4</span>,<br>	<br>	M5,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	M3,	<span class="hljs-number">4</span>,<br>	<br>	M4,	<span class="hljs-number">4</span>+<span class="hljs-number">2</span>,<br>	M3,	<span class="hljs-number">2</span>,<br>	M4,	<span class="hljs-number">4</span>,<br>	H1,	<span class="hljs-number">4</span>,<br>	<br>	<span class="hljs-comment">//3</span><br>	M3,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	P,	<span class="hljs-number">2</span>,<br>	H1,	<span class="hljs-number">2</span>,<br>	H1,	<span class="hljs-number">2</span>,<br>	H1,	<span class="hljs-number">2</span>,<br>	<br>	M7,	<span class="hljs-number">4</span>+<span class="hljs-number">2</span>,<br>	M4_,<span class="hljs-number">2</span>,<br>	M4_,<span class="hljs-number">4</span>,<br>	M7,	<span class="hljs-number">4</span>,<br>	<br>	M7,	<span class="hljs-number">8</span>,<br>	P,	<span class="hljs-number">4</span>,<br>	M6,	<span class="hljs-number">2</span>,<br>	M7,	<span class="hljs-number">2</span>,<br>	<br>	<span class="hljs-comment">//4</span><br>	H1,	<span class="hljs-number">4</span>+<span class="hljs-number">2</span>,<br>	M7,	<span class="hljs-number">2</span>,<br>	H1,	<span class="hljs-number">4</span>,<br>	H3,	<span class="hljs-number">4</span>,<br>	<br>	M7,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	M3,	<span class="hljs-number">2</span>,<br>	M3,	<span class="hljs-number">2</span>,<br>	<br>	M6,	<span class="hljs-number">4</span>+<span class="hljs-number">2</span>,<br>	M5,	<span class="hljs-number">2</span>,<br>	M6, <span class="hljs-number">4</span>,<br>	H1,	<span class="hljs-number">4</span>,<br>	<br>	<span class="hljs-comment">//5</span><br>	M5,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	M2,	<span class="hljs-number">2</span>,<br>	M3,	<span class="hljs-number">2</span>,<br>	<br>	M4,	<span class="hljs-number">4</span>,<br>	H1,	<span class="hljs-number">2</span>,<br>	M7,	<span class="hljs-number">2</span>+<span class="hljs-number">2</span>,<br>	H1,	<span class="hljs-number">2</span>+<span class="hljs-number">4</span>,<br>	<br>	H2,	<span class="hljs-number">2</span>,<br>	H2,	<span class="hljs-number">2</span>,<br>	H3,	<span class="hljs-number">2</span>,<br>	H1,	<span class="hljs-number">2</span>+<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	<br>	<span class="hljs-comment">//6</span><br>	H1,	<span class="hljs-number">2</span>,<br>	M7,	<span class="hljs-number">2</span>,<br>	M6,	<span class="hljs-number">2</span>,<br>	M6,	<span class="hljs-number">2</span>,<br>	M7,	<span class="hljs-number">4</span>,<br>	M5_,<span class="hljs-number">4</span>,<br>	<br>	<br>	M6,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	H1,	<span class="hljs-number">2</span>,<br>	H2,	<span class="hljs-number">2</span>,<br>	<br>	H3,	<span class="hljs-number">4</span>+<span class="hljs-number">2</span>,<br>	H2,	<span class="hljs-number">2</span>,<br>	H3,	<span class="hljs-number">4</span>,<br>	H5,	<span class="hljs-number">4</span>,<br>	<br>	<span class="hljs-comment">//7</span><br>	H2,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	M5,	<span class="hljs-number">2</span>,<br>	M5,	<span class="hljs-number">2</span>,<br>	<br>	H1,	<span class="hljs-number">4</span>+<span class="hljs-number">2</span>,<br>	M7,	<span class="hljs-number">2</span>,<br>	H1,	<span class="hljs-number">4</span>,<br>	H3,	<span class="hljs-number">4</span>,<br>	<br>	H3,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>+<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	<br>	<span class="hljs-comment">//8</span><br>	M6,	<span class="hljs-number">2</span>,<br>	M7,	<span class="hljs-number">2</span>,<br>	H1,	<span class="hljs-number">4</span>,<br>	M7,	<span class="hljs-number">4</span>,<br>	H2,	<span class="hljs-number">2</span>,<br>	H2,	<span class="hljs-number">2</span>,<br>	<br>	H1,	<span class="hljs-number">4</span>+<span class="hljs-number">2</span>,<br>	M5,	<span class="hljs-number">2</span>+<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	<br>	H4,	<span class="hljs-number">4</span>,<br>	H3,	<span class="hljs-number">4</span>,<br>	H3,	<span class="hljs-number">4</span>,<br>	H1,	<span class="hljs-number">4</span>,<br>	<br>	<span class="hljs-comment">//9</span><br>	H3,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	H3,	<span class="hljs-number">4</span>,<br>	<br>	H6,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	H5,	<span class="hljs-number">4</span>,<br>	H5,	<span class="hljs-number">4</span>,<br>	<br>	H3,	<span class="hljs-number">2</span>,<br>	H2,	<span class="hljs-number">2</span>,<br>	H1,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	P,	<span class="hljs-number">2</span>,<br>	H1,	<span class="hljs-number">2</span>,<br>	<br>	<span class="hljs-comment">//10</span><br>	H2,	<span class="hljs-number">4</span>,<br>	H1,	<span class="hljs-number">2</span>,<br>	H2,	<span class="hljs-number">2</span>,<br>	H2,	<span class="hljs-number">4</span>,<br>	H5,	<span class="hljs-number">4</span>,<br>	<br>	H3,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	H3,	<span class="hljs-number">4</span>,<br>	<br>	H6,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	H5,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	<br>	<span class="hljs-comment">//11</span><br>	H3,	<span class="hljs-number">2</span>,<br>	H2,	<span class="hljs-number">2</span>,<br>	H1,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	P,	<span class="hljs-number">2</span>,<br>	H1,	<span class="hljs-number">2</span>,<br>	<br>	H2,	<span class="hljs-number">4</span>,<br>	H1,	<span class="hljs-number">2</span>,<br>	H2,	<span class="hljs-number">2</span>+<span class="hljs-number">4</span>,<br>	M7,	<span class="hljs-number">4</span>,<br>	<br>	M6,	<span class="hljs-number">4</span>+<span class="hljs-number">4</span>+<span class="hljs-number">4</span>,<br>	P,	<span class="hljs-number">4</span>,<br>	<br>	<span class="hljs-number">0xFF</span>	<span class="hljs-comment">//终止标志</span><br>&#125;;<br><br><span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> FreqSelect,MusicSelect;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>	Timer0Init();<br>	<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)<br>	&#123;<br>		<span class="hljs-keyword">if</span>(Music[MusicSelect]!=<span class="hljs-number">0xFF</span>)	<span class="hljs-comment">//如果不是停止标志位</span><br>		&#123;<br>			FreqSelect=Music[MusicSelect];	<span class="hljs-comment">//选择音符对应的频率</span><br>			MusicSelect++;<br>			Delay(SPEED/<span class="hljs-number">4</span>*Music[MusicSelect]);	<span class="hljs-comment">//选择音符对应的时值</span><br>			MusicSelect++;<br>			TR0=<span class="hljs-number">0</span>;<br>			Delay(<span class="hljs-number">5</span>);	<span class="hljs-comment">//音符间短暂停顿</span><br>			TR0=<span class="hljs-number">1</span>;<br>		&#125;<br>		<span class="hljs-keyword">else</span>	<span class="hljs-comment">//如果是停止标志位</span><br>		&#123;<br>			TR0=<span class="hljs-number">0</span>;<br>			<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>);<br>		&#125;<br>	&#125;<br>&#125;<br><br><span class="hljs-comment">//原本是1ms中断一次，现改为直接进来中断的时候</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">Timer0_Routine</span><span class="hljs-params">()</span> interrupt 1<br>&#123;<br>	<span class="hljs-keyword">if</span>(FreqTable[FreqSelect])	<span class="hljs-comment">//如果不是休止符</span><br>	&#123;<br>		<span class="hljs-comment">/*取对应频率值的重装载值到定时器*/</span><br>		TL0 = FreqTable[FreqSelect]%<span class="hljs-number">256</span>;		<span class="hljs-comment">//设置定时初值</span><br>		TH0 = FreqTable[FreqSelect]/<span class="hljs-number">256</span>;		<span class="hljs-comment">//设置定时初值</span><br>		Buzzer=!Buzzer;	<span class="hljs-comment">//翻转蜂鸣器IO口</span><br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" class="category-chain-item">嵌入式</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%8D%95%E7%89%87%E6%9C%BA/" class="category-chain-item">单片机</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/">#51单片机</a>
+      
+        <a href="/tags/Keil/">#Keil</a>
+      
+        <a href="/tags/C%E8%AF%AD%E8%A8%80/">#C语言</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>单片机入门学习2</div>
+      <div>http://gigiboo.github.io/2023/02/14/“单片机2”/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Gigiboo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年2月14日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/02/14/%E2%80%9C%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E2%80%9D/" title="时间序列">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">时间序列</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/02/14/%E5%8D%95%E7%89%87%E6%9C%BA1/" title="单片机入门学习1">
+                        <span class="hidden-mobile">单片机入门学习1</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"h4hltMGcySPe1h9ysuveDQt4-gzGzoHsz","appKey":"FLYP9tULvEQ4yfGsz8b653kE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"enable":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div> Gigiboo's blog | 一些随想与记录</div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        🧐
+        <span id="leancloud-site-pv"></span>
+        
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        👦
+        <span id="leancloud-site-uv"></span>
+        
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/31/2022 00:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已小心翼翼运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
