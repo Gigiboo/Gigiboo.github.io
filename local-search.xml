@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>zotero</title>
+    <link href="/2023/04/15/zotero/"/>
+    <url>/2023/04/15/zotero/</url>
+    
+    <content type="html"><![CDATA[<p>好久不见OMG</p><p>开学一直美赛＋期末考试，考完后还有接踵而至的课程实验，blog又好几个没见了</p><p>最近出于管理文献的需求（<s>之前一直都是放在自建的目录里确实很混乱且提取效率不高</s>），一直以为zotero是和中文文献有关的东东，直到看到老师也在用···</p><p>这篇文章就记录一下在配置和使用zotero中（<s>也许</s>）可以使效率更高的措施吧~（好形式主义的说 但是真的好喜欢在用新的软件的时候配置一些方便的设置和插件）</p><h3 id="系统设置篇">系统设置篇</h3><h4 id="1-1-为标签添加快捷键和颜色"><strong>1.1 为标签添加快捷键和颜色</strong></h4><p>高级标签 我设置为了可能会常用的一些标签 但是好像目前还不能设置<strong>全局标签</strong> 不然可适用范围更广欸</p><p>等等！好像可以！</p><h4 id="1-2-Group-Library">1.2 Group Library</h4><p>为了可以根据学者来分类看同一个人的文章，新建了一个群组</p><h4 id="1-3-Zotero-Forums">1.3 <a href="https://forums.zotero.org/discussions">Zotero Forums</a></h4><h4 id="1-4-论文参考文献排版">1.4 <a href="https://mp.weixin.qq.com/s?__biz=MzAxNzgyMDg0MQ==&amp;mid=2650454799&amp;idx=7&amp;sn=923f61b3fbcbbe7287b81322859ff23a&amp;chksm=83d1a6c9b4a62fdfe3cfa1b8d75c10e279f3c159169cd863f6ffb935e0388c2c81d301eb2d66&amp;scene=21#wechat_redirect">论文参考文献排版</a></h4><p>先码住 有需要再看</p><h4 id="1-5-一键导出">1.5 <a href="https://mp.weixin.qq.com/s?__biz=MzAxNzgyMDg0MQ==&amp;mid=2650455941&amp;idx=1&amp;sn=335142d8103f6548ed27ded3e110bd43&amp;chksm=83d1a243b4a62b556ff4a70fba1178406331a5cb60fdf8aee55de41ccf00054ff18ca46482a5&amp;scene=21#wechat_redirect">一键导出</a></h4><p>好用~！！整洁！！搭配zotfile一绝！</p><h4 id="1-6-支持中国知网「期刊和硕博论文」PDF直接下载">1.6 支持中国知网「期刊和硕博论文」PDF直接下载</h4><p><a href="https://mp.weixin.qq.com/s?__biz=MzAxNzgyMDg0MQ==&amp;mid=2650456725&amp;idx=1&amp;sn=2f6e6fb3036933dfd71fde74556aded5&amp;chksm=83d1df53b4a656456fb129c8a56ad80d819005d94e9cc9ac689387093100b067aa1dbcde63a2&amp;scene=21#wechat_redirect">详情链接</a></p><h3 id="插件篇">插件篇</h3><h4 id="2-1-ZotFile-重命名">2.1 <a href="https://zhuanlan.zhihu.com/p/354935393">ZotFile</a> 重命名</h4><h4 id="2-2-Quicklook-预览">2.2 <strong>Quicklook</strong> 预览</h4><p>新版要先安装Quicklook软件然后再从zotero中安装此插件否则提示</p><p>或者直接用xpi的文件/<a href="https://zhuanlan.zhihu.com/p/489657386">修复版</a></p><p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230414203031355.png" alt="image-20230414203031355"></p><p>终于上传上了！</p><p>下载好quicklook软件后修改config</p><p>![image-20230414203349924](C:\Users\Mengyuan Xu\AppData\Roaming\Typora\typora-user-images\image-20230414203349924.png)</p><p>啊啊啊啊啊啊啊啊啊啊就是mac的空格啊 别提有多miss 谁用谁知道！！！！</p><p>在找教程的过程中 发现了<a href="https://zhuanlan.zhihu.com/p/30690152">macOS QuickLook常用插件集合</a> 啊啊啊啊啊啊下次有空了给mb装上</p><p>这个quicklook也可以应用与win系统实现和mac一样的功能</p><p>但是我没有安装那些插件 感觉那些用的还是比较少的</p><h4 id="2-3-Better-BibTeX">2.3 Better BibTeX</h4><p><a href="https://mp.weixin.qq.com/s?__biz=MzAxNzgyMDg0MQ==&amp;mid=2650456548&amp;idx=1&amp;sn=5f77addb1fc92edbe7e94db80cb9343a&amp;chksm=83d1dc22b4a655347bef71f991d7b323e83def1e21e51837c6b94083410e114661a0acd09582&amp;scene=21#wechat_redirect">使用技巧</a></p><p><a href="https://mp.weixin.qq.com/s?__biz=MzAxNzgyMDg0MQ==&amp;mid=2650456567&amp;idx=1&amp;sn=8220376ef681f12c7e4afda69ea80410&amp;chksm=83d1dc31b4a65527e3e29a7437efa952ef4e33dbf13443fbbb49ce452d33dc56b60023821df9&amp;scene=21#wechat_redirect">详解</a></p><p>码住！！！</p><h4 id="2-4-Zotero-Scholar-Citations">2.4 <strong>Zotero Scholar Citations</strong></h4><p>好用 就是有0的异常值 不打算解决 问题不大</p><h4 id="2-5-Zotero-IF">2.5 Zotero IF</h4><p>同2.4</p><p>详情见👇</p><p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230414221711195.png" alt=""></p><p>不知道非官方插件之后是否要手动更新</p><h4 id="2-6-zotero-doi-manager">2.6 zotero-doi-manager</h4><p>获取 shortDOI：对于所选项目，查找 shortDOI（替换存储的 DOI，如果有）并标记无效的 DOI。<br>获取长 DOI：对于所选项目，查找完整的 DOI（替换存储的 DOI，如果有）并标记无效的 DOI。<br>验证并清理 DOI：对于所选项目，查找完整的 DOI（替换存储的 DOI，如果有），验证存储的 DOI 是否有效，并标记无效的 DOI。<br>此函数还会从 DOI 字段中删除不必要的前缀（如：发布者 URL 前缀）。</p><h4 id="2-7-zotero-reference">2.7 zotero-reference</h4><ul><li><strong>将鼠标悬停上去即可实现前面动图所展示的效果</strong></li><li><strong>单击</strong>某条参考文献便会<strong>复制此条参考文献的信息</strong></li><li><strong>ctrl+单击参考文献</strong>，便会用默认浏览器<strong>打开此篇参考文献</strong></li><li>单击参考文献最右侧的<strong>加号</strong>，便可添加参考文献至正在阅读的文献所在文件夹下并与其进行<strong>双向关联</strong></li><li><strong>ctrl+单击最右侧的加号</strong>，便可添加参考文献至当前所在文件夹下并与其进行<strong>双向关联</strong></li><li>弹出的参考文献浮窗，<strong>其内的文字可以直接选中并进行复制</strong></li></ul><p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230414234325394.png" alt="image-20230414234325394"></p><p>我直接震惊 太好用了啊啊啊啊！！！！！</p><p><a href="https://zhuanlan.zhihu.com/p/595230433">详细可看</a></p><h4 id="2-8-Sci-Hub">2.8 Sci-Hub</h4><p>不必多说 Sci-Hub Download界yyds</p><h4 id="2-9-zotero-pdf-translate-插件">2.9 zotero-pdf-translate 插件</h4><p>需要到首选项里设置一下引擎</p><h4 id="2-10-Markdown-Here">2.10 <a href="https://link.zhihu.com/?target=https%3A//markdown-here.com/">Markdown Here</a></h4><p>谁懂啊！Markdown yyds</p><p>记得要markdown转换</p><h4 id="2-11-zotero-better-notes">2.11 zotero-better-notes</h4><p><a href="https://zhuanlan.zhihu.com/p/529084631">详细使用教程</a></p><p>类似obsidian</p><h4 id="2-12-Chartero">2.12 Chartero</h4><p><a href="https://www.bilibili.com/video/BV1XK411Q7Mp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=09af431f535b3b9c45c946f67adf0cb3">教程</a></p><p>有时间再看</p><h4 id="2-13-Chatgpt">2.13 Chatgpt</h4><p>哦吼~是跟着<a href="https://github.com/kazgu/zotero-chatgpt">官方教程</a>设置的</p><p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230414235404863.png" alt="image-20230414235404863"></p><p>omo api是付<img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230415000736643.png" alt="image-20230415000736643"></p><h4 id="2-14-茉莉花">2.14 茉莉花</h4><ol><li>拆分或合并 Zotero 中条目作者姓和名</li><li>根据知网上下载的文献文件来抓取引用信息（就是根据文件名）</li><li>添加中文PDF/CAJ时，自动拉取知网数据，该功能默认关闭。需要到设置中开启，注意添加的文件名需要含有中文，全英文没有效果（还是根据文件名）</li><li>为知网的学位论文 PDF 添加书签</li><li>更新中文 translators</li><li>拉取文献引用次数，是否核心期刊</li></ol><p><a href="https://gitee.com/anmin2014/jasminum">教程</a></p><h3 id="快捷键"><a href="https://mp.weixin.qq.com/s?__biz=MzAxNzgyMDg0MQ==&amp;mid=2650456495&amp;idx=1&amp;sn=7621b24038f0126515c9f23b60463207&amp;chksm=83d1dc69b4a6557fc9966a51a70cde70c4acda22ef167196f83377163b1c0ac1bb15e8018f8f&amp;scene=21#wechat_redirect">快捷键</a></h3><h3 id="遇到的问题">遇到的问题</h3><h4 id="1-安装很多插件的时候遇到不兼容问题">1.安装很多插件的时候遇到不兼容问题</h4><p>多是因为zotero升级到6.0 但是在插件内部最大版本见容量还是5.0</p><p>解决方法：</p><p><img src="https://typoraxmy.oss-cn-shanghai.aliyuncs.com/image-20230414220011684.png" alt="image-20230414220011684"></p><h4 id="2-出现打不开附加情况">2. 出现打不开附加情况</h4><p>以为是加的太多或者是chatgpt加入后有影响</p><p>关了再开也不行</p><p>原来这不是真的关···是要去任务管理器里关闭</p><p>啊啊啊配置了一晚上 但是好舒服啊</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>一些配置</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>APP</tag>
+      
+      <tag>配置</tag>
+      
+      <tag>插件</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>hexo插入视频或音乐</title>
     <link href="/2023/02/14/hexo%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91%E6%88%96%E9%9F%B3%E4%B9%90/"/>
     <url>/2023/02/14/hexo%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91%E6%88%96%E9%9F%B3%E4%B9%90/</url>
